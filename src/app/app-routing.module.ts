@@ -13,6 +13,10 @@ const routes: Routes = [
     canActivate: [ValidarTokenGuard],
     canLoad: [ValidarTokenGuard]
   },
+  {
+    path:'',
+    loadChildren: () => import('./store/store.module').then( m => m.StoreModule )
+  },
   { path:'**', redirectTo: 'auth' }
 ];
 

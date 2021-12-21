@@ -1,0 +1,20 @@
+/* Mensajes */
+section.mensajes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #003CA6;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: normal;
+  padding: 5px 0;
+}
+
+section.mensajes h5 {
+  margin: 0;
+  font-family: 'Adam-Light', 'sans-serif';
+  font-weight: bold;
+  letter-spacing: .2rem;
+  font-size: .9rem;
+  margin: 0 5px;
+}
