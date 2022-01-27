@@ -4,6 +4,10 @@ import { CommonModule } from '@angular/common';
 import { ProtectedRoutingModule } from './protected-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { ButtonModule } from 'primeng/button';
+
+
+
 
 @NgModule({
   declarations: [
@@ -11,7 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     CommonModule,
-    ProtectedRoutingModule
+    ProtectedRoutingModule,
+    ButtonModule
   ]
 })
 export class ProtectedModule { }
