@@ -1,0 +1,155 @@
+.shape{
+  position: relative;
+  height: 290px;
+  width: 240px;
+  top: 0%;
+}
+
+@media ( min-width:992px ){
+  .shape{
+    height: 480px;
+    width: 400px;
+
+  }
+}
+
+.shape svg {
+  position: absolute;
+  opacity: .9;
+  width: auto;
+  height: auto;
+}
+
+#io01{
+  position: absolute;
+  opacity: .9;
+  transform-origin: bottom center;
+  transform: rotate(0deg);
+}
+
+#io02{
+  position: absolute;
+  opacity: .9;
+  transform-origin: bottom center;
+  transform: rotate(10deg);
+}
+
+#io03{
+  position: absolute;
+  opacity: .9;
+  transform-origin: bottom center;
+  transform: rotate(20deg);
+}
+
+#io04{
+  position: absolute;
+  opacity: .6;
+  transform-origin: bottom center;
+  transform: rotate(30deg);
+}
+
+#io05{
+  position: absolute;
+  opacity: .9;
+  transform-origin: bottom center;
+  transform: rotate(40deg);
+}
+
+.shape .imagen img {
+  position: absolute;
+  height: auto;
+  width: 50%;
+  max-height: 300px;
+  left: 50%;
+  top: 25%;
+  transform: rotate(0deg);
+}
+
+
+.content {
+  padding-left: 2rem;
+  /* padding-top: 100px; */
+  margin: auto;
+  position: relative;
+  z-index: 50;
+}
+
+.container .row div:nth-child(2){
+  margin: auto;
+}
+
+
+/* .content h2{
+  padding-top: 50px;
+} */
+
+.content p{
+  	/* Font & Text */
+	font-family: "Gotham-light", sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 600;
+	letter-spacing: normal;
+	line-height: 32px;
+
+	/* Color & Background */
+	color: rgb(185, 185, 185);
+}
+
+.content .cuerpo-input{
+  width: 100%;
+  max-width: 350px;
+
+}
+
+
+.btn-outline-secondary {
+  border-color: #00b2e2;
+}
+
+.btn-outline-secondary:focus {
+  outline: none!important;
+  box-shadow: none;
+}
+
+.form-control:focus{
+  border-color: #00b5d6;
+  color: #00b5d6;
+  box-shadow: none;
+  /* outline: none!important; */
+}
+
+
+.content .cuerpo-input button {
+  /* Font & Text */
+	font-family: "GothamMedium", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	text-align: center;
+	text-indent: 0px;
+	vertical-align: top;
+	white-space: pre-wrap;
+	word-spacing: 0px;
+
+	/* Color & Background */
+	background-color: #00B2E2;
+	color: rgb(233, 233, 233);
+
+	/* Box */
+	/* padding: 14px 38px 13px; */
+}
+
+.content .cuerpo-input button:hover {
+  background-color: #0897be;
+
+}
+
+.celeste{
+  background-color: #0897be;
+  color: white;
+  padding: 5px 8px;
+  position: relative;
+  top: 5px;
+}

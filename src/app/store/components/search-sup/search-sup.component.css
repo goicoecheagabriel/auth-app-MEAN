@@ -1,9 +1,9 @@
 /* Bloque buscador */
 section.superior > .container{
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  align-items: center;
-  padding: 15px 0 0;
+  /* display: grid; */
+  /* grid-template-columns: auto 1fr auto auto; */
+  /* align-items: center; */
+  /* padding: 15px 0 0; */
 }
 
 section.superior .logotipo img{
@@ -18,7 +18,11 @@ section.superior .search form{
 section.superior .search input:focus{
   border-color: #00b5d6;
   color: #00b5d6;
-  /* box-shadow: 0 0 5px rgba(98, 101, 228, 1); */
   box-shadow: none;
+}
+
+div article{
+  display: flex;
+
 }
 /* ------------------------ */

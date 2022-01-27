@@ -8,7 +8,8 @@ const routes: Routes = [
   {
      path: '', component: HomeComponent, children: [
        { path: '', component: ContentIndexComponent },
-       { path: 'store', component: EcwidComponent },
+       { path: 'store/:id', component: EcwidComponent, pathMatch:'full' },
+       { path: 'store', component: EcwidComponent, pathMatch:'full' },
        { path: '**', redirectTo: '' }
      ]
   }

@@ -1,0 +1,79 @@
+<section *ngIf="menuOpen" (click)="close($event)">
+  <!-- <div class="btn-menu">
+    <i class="fas fa-bars"></i>
+  </div> -->
+
+  <div class="menu-slider" (click)="stopPropagation($event)" >
+
+    <div class="container logo">
+
+      <div class="row">
+        <div class="col-2 offset-10 ico-close" title="close">
+          <span (click)="close($event)">
+            <i class="fas fa-times"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col text-center">
+          <img src="../../../../assets/images/logos/now.png" alt="">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col text-center titulo">
+          Menú Principal
+        </div>
+      </div>
+    </div>
+
+    <nav class="container-fluid">
+      <ul>
+
+        <li *ngFor="let seccion of menu.secciones; let i = index" [ngClass]="{'li-root': seccion.tipo !== 'grafico','li-root-2':seccion.tipo === 'grafico'}">
+          <i class="fas fa-crown" *ngIf="seccion.icono"></i>
+
+          <a *ngIf="seccion.tipo === 'basico'; else sinHancor" [href]="seccion.ruta">
+            {{seccion.titulo}}
+          </a>
+
+          <ng-template #sinHancor>
+            {{seccion.titulo}}
+          </ng-template>
+
+
+          <ul *ngIf="seccion.tipo == 'simple'" class="ul-child">
+            <li *ngFor="let itemSimple of seccion.items; let j = index" >
+              <a [href]="itemSimple.ruta">{{ itemSimple.titulo }}</a>
+            </li>
+          </ul>
+
+          <ul *ngIf="seccion.tipo == 'bi-nivel'" class="ul-child">
+            <li *ngFor="let itemBiNivel of seccion.items; let j = index"
+                class="li-root-2"
+                [ngClass]="{'arrow-right':itemBiNivel.items}">
+              <a [href]="itemBiNivel.ruta">{{ itemBiNivel.titulo }}</a>
+              <ul class="ul-child-2" *ngIf="itemBiNivel.items">
+                <li *ngFor=" let subItemSimple of itemBiNivel.items; let k = index" >
+                  <a [href]="subItemSimple.ruta">{{subItemSimple.titulo}} </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul *ngIf="seccion.tipo == 'grafico'" class="ul-child-2 ul-specials">
+            <li *ngFor="let itemGrafico of seccion.items; let j = index" >
+
+              <a [href]="itemGrafico.ruta" [ngClass]="{'no-svg': itemGrafico?.imagen?.search('.svg') == -1 && true, 'svg': itemGrafico?.imagen?.search('.svg') != -1 && true}">
+                <img [src]="itemGrafico.imagen" alt="">
+              </a>
+            </li>
+          </ul>
+
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</section>

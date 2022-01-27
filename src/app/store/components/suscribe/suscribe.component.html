@@ -1,0 +1,73 @@
+<section>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12 col-md-5">
+
+        <div class="shape">
+          <svg id="io01" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+            <path fill="#67971E" d="M371,311Q322,382,221.5,414Q121,446,72.5,343Q24,240,72,136.5Q120,33,217,72Q314,111,367,175.5Q420,240,371,311Z" />
+          </svg>
+          <svg id="io02" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+            <path fill="#7DB02E" d="M371,311Q322,382,221.5,414Q121,446,72.5,343Q24,240,72,136.5Q120,33,217,72Q314,111,367,175.5Q420,240,371,311Z" />
+          </svg>
+          <svg id="io03" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+            <path fill="#92C73E" d="M371,311Q322,382,221.5,414Q121,446,72.5,343Q24,240,72,136.5Q120,33,217,72Q314,111,367,175.5Q420,240,371,311Z" />
+          </svg>
+          <svg id="io04" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+            <path fill="#A7DB51" d="M371,311Q322,382,221.5,414Q121,446,72.5,343Q24,240,72,136.5Q120,33,217,72Q314,111,367,175.5Q420,240,371,311Z" />
+          </svg>
+          <svg id="io05" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+            <path fill="#BAEB65" d="M371,311Q322,382,221.5,414Q121,446,72.5,343Q24,240,72,136.5Q120,33,217,72Q314,111,367,175.5Q420,240,371,311Z" />
+          </svg>
+          <div class="imagen">
+            <img src="../../../../assets/images/components/camiseta-psg.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-7">
+        <div
+              class="content">
+
+          <h2>Participa del sorteo de la <br><span style="color: #00b5d6;">camiseta del PSG</span></h2>
+
+          <p>
+            Suscribete a nuestro boletín informativo y participa en el sorteo de una camiseta del PSG. Podrás seleccionar el color y la talla al momento de ganar. A que esperas, ingresa tu correo y viste la 30 del PSG.
+          </p>
+
+          <form *ngIf="!suscrito; else gracias"
+                [formGroup]="suscriptorForm"
+                autocomplete="off"
+                (ngSubmit)="registrar()">
+            <div class="input-group mb-3 cuerpo-input">
+              <input type="text"
+                     formControlName="email"
+                     class="form-control"
+                     placeholder="Introduce un correo válido" aria-label="Recipient's username" aria-describedby="button-addon2">
+              <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Participar</button>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input"
+                     formControlName="acepta"
+                     type="checkbox"
+                     value=""
+                     id="recibir-correos">
+              <label class="form-check-label" for="recibir-correos">
+                Acepto recibir información a mi correo
+              </label>
+            </div>
+          </form>
+
+          <ng-template #gracias>
+            Usuario suscrito con exito <br>
+            <span class="celeste">Buena suerte!!!</span>
+          </ng-template>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

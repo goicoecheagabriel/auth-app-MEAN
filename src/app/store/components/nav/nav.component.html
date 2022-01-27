@@ -1,24 +1,85 @@
 
-
-<!-- Barra de navegacion -->
 <section>
   <nav class="container">
     <ul>
+
+      <li *ngFor="let seccion of menu.secciones; let i = index" [ngClass]="{'li-root': seccion.tipo !== 'grafico','li-root-2':seccion.tipo === 'grafico'}">
+        <i class="fas fa-crown" *ngIf="seccion.icono"></i>
+
+        <a *ngIf="seccion.tipo === 'basico'; else sinHancor" [href]="seccion.ruta">
+          {{seccion.titulo}}
+        </a>
+
+        <ng-template #sinHancor>
+          {{seccion.titulo}}
+        </ng-template>
+
+
+        <ul *ngIf="seccion.tipo == 'simple'" class="ul-child">
+          <li *ngFor="let itemSimple of seccion.items; let j = index" >
+            <a [href]="itemSimple.ruta">{{ itemSimple.titulo }}</a>
+          </li>
+        </ul>
+
+        <ul *ngIf="seccion.tipo == 'bi-nivel'" class="ul-child">
+          <li *ngFor="let itemBiNivel of seccion.items; let j = index"
+              class="li-root-2"
+              [ngClass]="{'arrow-right':itemBiNivel.items}">
+            <a [href]="itemBiNivel.ruta">{{ itemBiNivel.titulo }}</a>
+            <ul class="ul-child-2" *ngIf="itemBiNivel.items">
+              <li *ngFor=" let subItemSimple of itemBiNivel.items; let k = index" >
+                <a [href]="subItemSimple.ruta">{{subItemSimple.titulo}} </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul *ngIf="seccion.tipo == 'grafico'" class="ul-child-2 ul-specials">
+          <li *ngFor="let itemGrafico of seccion.items; let j = index" >
+
+            <a [href]="itemGrafico.ruta" [ngClass]="{'no-svg': itemGrafico?.imagen?.search('.svg') == -1 && true, 'svg': itemGrafico?.imagen?.search('.svg') != -1 && true}">
+              <img [src]="itemGrafico.imagen" alt="">
+            </a>
+          </li>
+        </ul>
+
+
+        <!-- <a *ngIf="seccion.tipo == 'basico'" [href]="seccion.ruta">{{ seccion.titulo }}</a> -->
+
+      </li>
+
+    </ul>
+  </nav>
+</section>
+
+
+
+
+
+
+
+<!-- Barra de navegacion -->
+<!-- <section>
+  <nav class="container">
+    <ul>
+
       <li class="li-root">
         <i class="fas fa-crown"></i>
         Top categorías
         <ul class="ul-child">
-          <li><a href="/store#!/~/search/keyword=nike">Nike</a></li>
-          <li><a href="/store#!/~/search/keyword=jordan">Jordan</a></li>
-          <li><a href="/store#!/~/search/keyword=adidas">Adidas</a></li>
-          <li><a href="/store#!/~/search/keyword=converse">Converse</a></li>
+          <li><a href="/store#!/Nike/c/92775401">Nike</a></li>
+          <li><a href="/store#!/Jordan/c/92775404">Jordan</a></li>
+          <li><a href="/store#!/Adidas/c/92775381">Adidas</a></li>
+          <li><a href="/store#!/Converse/c/92775435">Converse</a></li>
         </ul>
       </li>
+
       <li class="li-root">
         Sneakers
         <ul class="ul-child">
+
           <li class="li-root-2 arrow-right">
-            <a href="/store#!/~/search/keyword=nike">Nike</a>
+            <a href="store#!/Nike/c/92775401">Nike</a>
             <ul class="ul-child-2">
               <li><a href="/store#!/Air-Fear-Of-God-1/c/92775402">Air Fear of God</a></li>
               <li><a href="/store#!/Air-Force-1/c/92775403">Air Force 1</a></li>
@@ -27,7 +88,7 @@
               <li><a href="/store#!/Air-Max-720/c/92775478">Air Max 720</a></li>
               <li><a href="/store#!/Air-Max-Plus-TN/c/92775484">Air Max Plus TN</a></li>
               <li><a href="/store#!/Blazer-Mid/c/92775419">Blazer</a></li>
-              <li><a href="store#!/Dunklow-x-Off-white/c/92775505">Dunklow</a></li>
+              <li><a href="/store#!/Dunklow/c/92775447">Dunklow</a></li>
               <li><a href="store#!/LDWaffle-x-Sacai/c/92775499">LDWaffle</a></li>
               <li><a href="store#!/Shot-TL/c/92775506">Shox TL</a></li>
               <li><a href="store#!/React-Element-87/c/92775504">React Element 87</a></li>
@@ -37,7 +98,7 @@
             </ul>
           </li>
           <li class="li-root-2 arrow-right">
-            <a href="/store#!/~/search/keyword=jordan">Jordan</a>
+            <a href="store#!/Jordan/c/92775404">Jordan</a>
             <ul class="ul-child-2">
               <li><a href="store#!/Air-Jordan-1/c/92775407">Jordan 1</a></li>
               <li><a href="store#!/Air-Jordan-3/c/92775408">Jordan 3</a></li>
@@ -49,7 +110,7 @@
             </ul>
           </li>
           <li class="li-root-2 arrow-right">
-            <a href="/store#!/~/search/keyword=adidas">Adidas</a>
+            <a href="store#!/Adidas/c/92775381">Adidas</a>
             <ul class="ul-child-2">
               <li><a href="store#!/Yeezy-350/c/92775389">Yeezy 350 v2</a></li>
               <li><a href="store#!/Yeezy-380/c/92775394">Yeezy 380</a></li>
@@ -60,7 +121,7 @@
               <li><a href="store#!/Human-Race/c/92775392#!/Human-Race/c/92775392">Human Race</a></li>
             </ul>
           </li>
-          <li><a href="/store#!/~/search/keyword=converse">Converse</a></li>
+          <li><a href="store#!/Converse/c/92775435">Converse</a></li>
           <li class="li-root-2 arrow-right">
             <a href="/store#!/~/search/keyword=Fila">Fila</a>
             <ul class="ul-child-2">
@@ -100,8 +161,10 @@
           </li>
           <li><a href="/store#!/~/search/keyword=givenchy">Givenchy</a></li>
           <li><a href="/store#!/~/search/keyword=louboutin">Louboutin</a></li>
+
         </ul>
       </li>
+
       <li class="li-root-2">
         Más pedidos
         <ul class="ul-child-2 ul-specials">
@@ -117,6 +180,9 @@
             </li>
         </ul>
       </li>
+
     </ul>
   </nav>
-</section>
+
+  <hr>
+</section> -->

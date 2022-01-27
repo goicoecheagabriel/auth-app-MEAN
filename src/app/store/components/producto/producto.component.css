@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+.producto {
+  font-family: Manrope, sans-serif;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  margin: 5px;
+  /* box-shadow: 0 0 10px 0 rgb(243, 243, 243); */
+  padding: 10px;
+  min-height: calc(100% - 30px);
+  border-radius: 2px;
+  /* opacity: .8; */
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  /* box-sizing: border-box; */
+}
+
+.producto .name{
+  position: relative;
+  z-index: 1;
+}
+
+.producto .imagen{
+  /* opacity: .95; */
+  position: relative;
+  z-index: 0;
+}
+
+.producto .imagen img{
+  width: 100%;
+  object-fit: cover;
+  min-height: 200px;
+  min-width: 276px;
+}
+
+.producto .name h6{
+  min-height: 40px;
+}
+
+.producto .precio {
+  position: relative;
+  top: -10px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: rgb(207, 207, 207);
+  color: #5489b1;
+}
+
+
+

@@ -36,6 +36,15 @@
   src: url(./assets/fonts/Adam/Adam-Bold.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'GothamMedium';
+  src: url(./assets/fonts/Gotham/GothamMedium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Gotham-Light';
+  src: url(./assets/fonts/Gotham/GothamLight.ttf) format('truetype');
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
@@ -49,6 +58,7 @@
 body, html {
     height: 100%;
     font-family: Poppins-Regular, sans-serif;
+    /* width: 100vw!important; */
 }
 
 /*---------------------------------------------*/

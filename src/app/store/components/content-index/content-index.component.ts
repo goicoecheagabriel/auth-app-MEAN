@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content-index.component.css']
 })
 export class ContentIndexComponent implements OnInit {
+  color:string = '#00B2E3';
 
   constructor() { }
 

@@ -15,13 +15,14 @@ const routes: Routes = [
   },
   {
     path:'',
-    loadChildren: () => import('./store/store.module').then( m => m.StoreModule )
+    loadChildren: () => import('./store/store.module').then( m => m.StoreModule ),
+    runGuardsAndResolvers: 'always'
   },
   { path:'**', redirectTo: 'auth' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

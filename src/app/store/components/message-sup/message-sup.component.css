@@ -1,16 +1,26 @@
 /* Mensajes */
 section.mensajes {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #003CA6;
   color: #ffffff;
   font-size: 1rem;
   font-weight: normal;
-  padding: 5px 0;
+  min-height: 2rem;
+}
+
+section div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section div div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 section.mensajes h5 {
+  text-align: center;
   margin: 0;
   font-family: 'Adam-Light', 'sans-serif';
   font-weight: bold;

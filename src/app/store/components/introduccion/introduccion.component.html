@@ -1,0 +1,66 @@
+<div class="container-fluid container-lg" [@aniPresent]="state">
+
+  <!-- <div class="content"> -->
+  <div class="row content">
+
+      <div class="col-12 col-lg-5 order-1 order-md-0">
+
+        <h5 class="comentario text-gray mt-4 mt-md-0">Cientos de ventas</h5>
+
+        <h1 class="titulo">Momentos simples e inolvidables</h1>
+
+        <p class="descripcion">Somos expertos en enviar a la puerta de tu casa, lo que estás esperando. Cada mes alegramos a cientos de personas entregándoles felicidad.</p>
+
+        <div class="btn-block">
+          <a [routerLink]="'/store'" fragment="!/Jordan/c/92775404" class="call-to-action btn btn--large btn--yellow" rel="nofollow noopener nofollow  noopener">Comprar en la tienda</a>
+          <div class="texto-cierre text-small text-gray">
+            Quiéres ir directo a lo más pedido?
+            <a href="store#!/c/0" rel="nofollow noopener">Ver destacados.</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-7 order-0 order-md-1">
+        <div id="carousel" #slider class="container-xxl carousel slide mt-5" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+
+              <a href="/store#!/Air-Jordan-1-x-Travis-Scott/p/320319524">
+                <img src="../../../../assets/images/components/Jordan_Travis_Scott_trans.png" class="d-block w-100" alt="Imagen 1">
+              </a>
+            </div>
+            <div class="carousel-item">
+
+              <a href="/store#!/Air-Jordan-1-Retro-High-White-University-Blue-Black/p/320319520"><img src="../../../../assets/images/components/Jordan_Retro_High_trans.png" class="d-block w-100" alt="Imagen 2"></a>
+            </div>
+            <div class="carousel-item">
+
+              <a href="/store#!/Air-Jordan-1-Retro-High-UNC-Patent/p/320319503">
+                <img src="../../../../assets/images/components/Jordan_UNC_trans.png" class="d-block w-100" alt="Imagen 3">
+
+              </a>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+
+          <!-- Utilizado en el ngAfterViewInit() para reactivar el cycle del slider -->
+          <div style="visibility: hidden;"
+               #cycleSlide
+               data-bs-target="#carousel"
+               data-bs-slide="cycle">
+          </div>
+
+        </div>
+      </div>
+
+    <!-- </div> -->
+
+  </div>
+</div>

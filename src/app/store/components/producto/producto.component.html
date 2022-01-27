@@ -1,0 +1,13 @@
+<div class="producto" (mouseleave)="toggleImage('inactive')" (mouseover)="toggleImage('active')" (click)="abrirDetalle($event)">
+
+  <div class="imagen">
+    <img src="{{ producto.thumbnailUrl }}" alt=""  [@aniProducto]="state" />
+  </div>
+  <div class="name">
+    <h6 [@aniName]="state">{{ producto.name }}</h6>
+  </div>
+  <div class="precio">
+    <span class="">{{ producto.price | currency: "EUR" }}</span>
+  </div>
+
+</div>
