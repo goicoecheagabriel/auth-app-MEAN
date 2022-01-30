@@ -63,8 +63,16 @@
 
 body, html {
     height: 100%;
+    /* font-family: var(--font-family); */
     font-family: Poppins-Regular, sans-serif;
+    background-color: var(--surface-b);
     /* width: 100vw!important; */
+}
+
+
+
+.text-layout{
+  color: var(--text-color);
 }
 
 /*---------------------------------------------*/

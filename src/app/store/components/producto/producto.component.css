@@ -7,7 +7,7 @@
   /* box-shadow: 0 0 10px 0 rgb(243, 243, 243); */
   padding: 10px;
   min-height: calc(100% - 30px);
-  border-radius: 2px;
+  border-radius: 6px;
   /* opacity: .8; */
   cursor: pointer;
   transition: all 300ms ease-in-out;
@@ -28,8 +28,8 @@
 .producto .imagen img{
   width: 100%;
   object-fit: cover;
-  min-height: 200px;
-  min-width: 276px;
+  min-height: 170px;
+  /* min-width: 276px; */
 }
 
 .producto .name h6{

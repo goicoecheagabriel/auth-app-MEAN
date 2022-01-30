@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { StoreRoutingModule } from './store-routing.module';
 import { HomeComponent } from './pages/home/home.component';
@@ -19,6 +18,10 @@ import { SuscribeComponent } from './components/suscribe/suscribe.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavMovilComponent } from './components/nav-movil/nav-movil.component';
+import { FaqsComponent } from './pages/faqs/faqs.component';
+
+// Modulos personalizados
+import { PrimeNgModule } from './prime-ng/prime-ng.module'
 
 
 @NgModule({
@@ -36,14 +39,16 @@ import { NavMovilComponent } from './components/nav-movil/nav-movil.component';
     ProductoComponent,
     SuscribeComponent,
     FooterComponent,
-    NavMovilComponent
+    NavMovilComponent,
+    FaqsComponent
   ],
   imports: [
     CommonModule,
     // BrowserAnimationsModule,
     StoreRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PrimeNgModule
   ]
 })
 export class StoreModule { }

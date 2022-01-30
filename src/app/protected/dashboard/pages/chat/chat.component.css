@@ -1,0 +1,43 @@
+.mensajes{
+  /* background: linear-gradient(270deg, rgba(146,200,62,1) 15%, rgba(0,178,227,1) 50%, rgba(0,61,166,0.6643032212885154) 100%)!important; */
+  /* background: linear-gradient(135deg, rgba(146,200,62,1) 0%, rgba(0,178,227,1) 50%, rgba(0,61,166,1) 100%); */
+  background: linear-gradient(315deg, rgba(146,200,62,1) 0%, rgba(0,178,227,1) 100%);
+  /* padding: 20px; */
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.titulo{
+  padding: 20px;
+}
+
+
+.p-left{
+  /* background-color: white; */
+  padding: 5px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.contacto{
+  background-color: #003da662;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin: 5px 0;
+  min-height: 80px;
+  min-width: 300px;
+  max-width: 350px;
+  cursor: pointer;
+  transition: 180ms ease-in-out;
+}
+
+.contacto:hover{
+  background-color: #003da68e;
+
+}
+
+
+.p-scrollpanel-content {
+  padding: 0 8px 20px 0!important;
+}

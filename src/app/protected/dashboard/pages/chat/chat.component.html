@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="mensajes">
+    <div class="row">
+      <div class="col">
+        <div class="titulo">Aca va el titulo</div>
+      </div>
+    </div>
+    <p-splitter
+      class=""
+      [style]="{
+        height: '600px',
+        'background-color': 'transparent',
+        'border-color': 'transparent'
+      }"
+      [panelSizes]="[20, 70]"
+      layout="horizontal"
+    >
+      <ng-template pTemplate>
+        <p-scrollPanel
+          [style]="{ width: '100%', height: '100%' }"
+          styleClass="custom"
+        >
+          <div class="p-left">
+            <div *ngFor="contacto; of: contactos" class="contacto">
+              Contacto
+            </div>
+          </div>
+        </p-scrollPanel>
+      </ng-template>
+
+      <ng-template pTemplate> Hola a todos! </ng-template>
+    </p-splitter>
+  </div>
+</div>
+
+
+<div class="container" *ngIf="false">
+  <div class="mensajes">
+
+    <div class="row">
+      <div class="col">
+        <div class="titulo">Aca va el titulo</div>
+      </div>
+    </div>
+
+    <div class="row" style="height: 600px;">
+
+      <div class="col col-md-4" style="height: 600px;">
+        <p-scrollPanel
+          [style]="{ width: '100%', height: '100%' }"
+          styleClass="custom"
+        >
+          <div class="p-left">
+            <div *ngFor="contacto; of: contactos" class="contacto">
+              Contacto
+            </div>
+          </div>
+        </p-scrollPanel>
+      </div>
+
+      <div class="col col-md-8">
+
+        <p-scrollPanel
+        [style]="{ width: '100%', height: '100%' }"
+        styleClass="custom"
+        >
+        <div style="height: 600px;">
+          <div class="p-left">
+            <div>
+              mensajes
+            </div>
+          </div>
+        </div>
+        </p-scrollPanel>
+
+      </div>
+
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,46 @@
+.container{
+  min-height: 60vh;
+}
+
+.url{
+  color: #c5eab3;
+  padding: 4px 8px;
+  text-decoration: none;
+}
+
+.url:hover{
+  color: #78ad5e;
+}
+
+.content{
+  position: relative;
+  height: auto;
+}
+
+.content .texto{
+  position: relative;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  top: -200px;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255);
+  padding: 30px;
+  width: 80%;
+  min-height: 400px;
+  margin: auto;
+
+}
+
+.texto div {
+  /* font */
+  font-family: "Gotham-light", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-feature-settings: normal;
+  font-variant: normal;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 32px;
+  color: rgb(185, 185, 185);
+}

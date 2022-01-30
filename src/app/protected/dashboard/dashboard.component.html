@@ -1,16 +1,18 @@
-<h1>Dashboard</h1>
-<hr>
+<p-sidebar [(visible)]="display">
+  <ul>
+    <li routerLink="/dashboard" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Dashboard</li>
+    <li routerLink="/dashboard/chat" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Chat</li>
+    <li routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Store</li>
+    <li routerLink="/dashboard/otro" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Menu-4</li>
+    <li routerLink="/dashboard/otro" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Menu-5</li>
+    <li routerLink="/dashboard/otro" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Menu-6</li>
+    <li (click)="logout()">Logout</li>
+  </ul>
+</p-sidebar>
 
-<p>
-  Esta página slo funciona si estas autenticado
-</p>
+<p-button type="text"
+          (click)="display = true"
+          icon="pi pi-plus" label="Show">
+</p-button>
 
-<h4>User innfo</h4>
-<pre> {{ usuario | json }} </pre>
-
-<button pButton
-        label="Cambiar nombre"
-        (click)="logout()">
-</button>
-
-<p-button label="click"></p-button>
+  <router-outlet></router-outlet>

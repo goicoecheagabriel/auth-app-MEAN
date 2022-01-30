@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-5 col-xl-4 tree">
+
+      <p-tree [value]="nodes" [filter]="true">
+        <ng-template let-node pTemplate="url">
+            <a  (click)="pregunta(node)" ngClass="url" [routerLink]="node.data">{{node.label}}</a>
+        </ng-template>
+        <ng-template let-node pTemplate="default">
+            <b>{{node.label}}</b>
+        </ng-template>
+    </p-tree>
+
+    </div>
+
+
+    <div class="col-md-7 col-xl-8 content">
+
+      <div class="row imagen">
+        <img src="../../../../assets/images/components/faqs.jpg" alt="">
+        <div *ngIf="node; else titulo" class="texto">
+          <h2 class="label">{{node?.label}}</h2>
+          <div [innerHTML]="txt"></div>
+        </div>
+
+        <ng-template #titulo>
+          <div class="texto" style="display: flex; align-items: center; text-align: center;">
+            <h2>Selecciona tu pregunta en el panel</h2>
+          </div>
+        </ng-template>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+

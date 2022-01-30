@@ -1,0 +1,54 @@
+<div class="container text-layout">
+
+  <div class="row">
+    <div class="col">
+      <h1>Dashboard</h1>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p>
+        Esta página slo funciona si estas autenticado
+      </p>
+
+      <h4>User info</h4>
+      <pre> {{ usuario | json }} </pre>
+
+    </div>
+
+    <div class="col">
+
+      <p-card header="header"
+              subheader="Esto es un subheader">
+        Content
+      </p-card>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-6">
+      <button pButton
+              label="Probando"
+              class="">
+      </button>
+
+      <button pButton
+              class="p-button-danger"
+              icon="pi pi-sign-out"
+              iconPos="right"
+              label="Logout"
+              (click)="logout()">
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+</div>
