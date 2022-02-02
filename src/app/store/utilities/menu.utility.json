@@ -275,6 +275,11 @@
       "titulo": "Talles",
       "tipo": "basico",
       "ruta": "https://www.nowsneakers.com/size.html"
+    },
+    {
+      "titulo": "Signin",
+      "tipo": "basico",
+      "ruta": "/auth/login"
     }
   ]
 }

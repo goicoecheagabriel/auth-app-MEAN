@@ -1,0 +1,27 @@
+.titulo{
+  text-align: center;
+  padding: 20px 0;
+  background-color: #ECEFF6;
+}
+
+.ruta, .final-de-ruta{
+  text-decoration: none;
+  transition: 150ms ease-in-out;
+
+}
+
+.ruta{
+  color: #686868;
+
+}
+/*
+.titulo span{
+  color: #686868;
+} */
+.final-de-ruta{
+  color: #c5eab3;
+}
+
+.final-de-ruta:hover{
+  color: #78ad5e;
+}

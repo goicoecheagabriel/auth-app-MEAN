@@ -21,7 +21,9 @@ import { NavMovilComponent } from './components/nav-movil/nav-movil.component';
 import { FaqsComponent } from './pages/faqs/faqs.component';
 
 // Modulos personalizados
-import { PrimeNgModule } from './prime-ng/prime-ng.module'
+import { PrimeNgModule } from './prime-ng/prime-ng.module';
+import { ContactComponent } from './pages/contact/contact.component';
+import { TituloPageComponent } from './components/titulo-page/titulo-page.component'
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { PrimeNgModule } from './prime-ng/prime-ng.module'
     SuscribeComponent,
     FooterComponent,
     NavMovilComponent,
-    FaqsComponent
+    FaqsComponent,
+    ContactComponent,
+    TituloPageComponent
   ],
   imports: [
     CommonModule,

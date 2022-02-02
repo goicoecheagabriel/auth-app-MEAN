@@ -1,0 +1,9 @@
+<div class="titulo">
+  <h2>{{titulo| uppercase}}</h2>
+  <span *ngFor="let item of rutas; let i = index">
+    <a [ngClass]="{'ruta':i < rutas.length - 1,'final-de-ruta':i == rutas.length - 1}" [routerLink]="item.ruta">
+      {{item.titulo}}
+      <span *ngIf="i < rutas.length - 1" > > </span>
+    </a>
+  </span>
+</div>

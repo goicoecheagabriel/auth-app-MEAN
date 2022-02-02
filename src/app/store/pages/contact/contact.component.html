@@ -1,0 +1,193 @@
+<div class="container-fluid content">
+  <div class="row">
+
+    <div class="col">
+      <app-titulo-page></app-titulo-page>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col">
+
+      <!-- <div class="mapa">
+        <p-gmap #gmap [style]="{'width':'100%','height':'60vh', 'margin-bottom': '1em'}" [options]="options"
+        ></p-gmap>
+      </div> -->
+
+      <div class="imagen">
+        <img src="../../../../assets/images/components/contact.jpg"
+             [style]="{'width':'100%','height':'60vh','object-fit':'cover'}">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="bloque-contact-us">
+    <div class="row">
+
+      <div class="col-12">
+
+        <div class="contact-us">
+          <h2 class="titulo">Contactanos</h2>
+          <p class="descripcion">Nos pondremos en contacto lo antes posible para responder a sus preguntas</p>
+        </div>
+
+      </div>
+
+      <div class="col-12 col-md-6">
+
+        <form [formGroup]="contactForm"
+              autocomplete="off"
+              (ngSubmit)="enviar()">
+              <!-- <p-captcha siteKey="6LeS8VAeAAAAACQ6QjCB8wsgqE_2-A-gttY9vuxS" (onResponse)="showResponse($event)"></p-captcha> -->
+          <div class="field">
+            <input class="nombre ng-invalid ng-dirty"
+                   aria-describedby="nombre-help"
+                   formControlName="nombre"
+                   style="width: 100%;"
+                   type="text"
+                   pInputText
+                   placeholder="Su nombre"/>
+            <small class="error" *ngIf="isInvalid('nombre')">
+              El nombre debe tener al menos 3 caracteres.
+            </small>
+          </div>
+          <div>
+            <input class="email"
+                   formControlName="email"
+                   style="width: 100%;"
+                   type="email"
+                   pInputText
+                   placeholder="Su email"/>
+              <small class="error" *ngIf="isInvalid('email')">
+                El formato del email es incorrecto.
+              </small>
+          </div>
+          <div>
+            <textarea class="textwrapper mensaje"
+                      formControlName="mensaje"
+                      cols="2"
+                      rows="10"
+                      pInputTextarea
+                      placeholder="Su mensaje">
+            </textarea>
+            <small class="error" *ngIf="isInvalid('mensaje')">
+              El mensaje debe tener como mínimo 30 caracteres y un máximo de 256.
+            </small>
+          </div>
+
+          <button [style]="{'backgroundColor': '#92C83E','padding': '1rem'}
+                    "
+                    type="submit"
+                    pButton
+                    label="ENVIAR MENSAJE" >
+          </button>
+
+        </form>
+
+      </div>
+
+      <div class="col-12 col-md-6">
+
+        <article class="article-info mt-5 mt-md-0">
+          <div class="icono">
+            <i class="pi pi-map-marker"></i>
+          </div>
+          <div class="texto">
+            <div class="article-titulo">
+              Dirección
+            </div>
+            <div class="article-descripcion">
+              Av altos hornos de Vizcaya 38, Bilbao, España.
+            </div>
+          </div>
+        </article>
+
+        <article class="article-info mt-3">
+          <div class="icono">
+            <i class="pi pi-phone"></i>
+          </div>
+          <div class="texto">
+            <div class="article-titulo">
+              Teléfono
+            </div>
+            <div class="article-descripcion">
+              +34 688725504
+            </div>
+          </div>
+        </article>
+
+        <article class="article-info mt-3">
+          <div class="icono">
+            <i class="pi pi-envelope"></i>
+          </div>
+          <div class="texto">
+            <div class="article-titulo">
+              Email
+            </div>
+            <div class="article-descripcion">
+              hola@nowsneakers.com
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <div class="container devForm" >
+    <div class="row">
+
+      <div class="col">
+        <span>Valid</span>
+        <h6>Indica si el formulario se encuentra válido.</h6>
+        <pre>{{  contactForm.valid }}</pre>
+      </div>
+
+      <div class="col">
+        <span>Pristine</span>
+        <h6>Indica si el estado del formulario no ha cambiado nunca</h6>
+        <pre>{{  contactForm.pristine }}</pre>
+      </div>
+
+      <div class="col">
+        <span>Touched</span>
+        <h6>Indica si se ha interactuado con algun campo del formulario</h6>
+        <pre>{{  contactForm.touched }}</pre>
+      </div>
+
+      <div class="col">
+        <span>Values</span>
+        <h6>Muestra los valores de los campos del formularios</h6>
+        <pre>{{  contactForm.value | json }}</pre>
+      </div>
+
+      <div class="col">
+        <span>Errores en campos</span><br>
+        <span>Con null indica que no existen errores en el campo. De lo contrario indica el error</span>
+
+        <div>
+          <h6>Nombre</h6>
+          <pre>{{  contactForm.get('nombre')?.errors | json }}</pre>
+        </div>
+
+        <div>
+          <h6>Email</h6>
+          <pre>{{  contactForm.get('email')?.errors | json }}</pre>
+        </div>
+
+        <div>
+          <h6>Mensaje</h6>
+          <pre>{{  contactForm.get('mensaje')?.errors | json }}</pre>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+

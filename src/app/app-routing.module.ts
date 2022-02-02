@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ValidarTokenGuard } from './guards/validar-token.guard';
 
 const routes: Routes = [
   {
     path: 'auth',
+    // data: { preload: true },
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule )
   },
   {
     path: 'dashboard',
+    // data: { preload: true },
     loadChildren: () => import('./protected/protected.module').then( m => m.ProtectedModule ),
     canActivate: [ValidarTokenGuard],
     canLoad: [ValidarTokenGuard]
@@ -22,7 +24,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
+  imports: [RouterModule.forRoot(routes, {
+    onSameUrlNavigation: 'reload',
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
