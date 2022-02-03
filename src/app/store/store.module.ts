@@ -23,7 +23,9 @@ import { FaqsComponent } from './pages/faqs/faqs.component';
 // Modulos personalizados
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { ContactComponent } from './pages/contact/contact.component';
-import { TituloPageComponent } from './components/titulo-page/titulo-page.component'
+import { TituloPageComponent } from './components/titulo-page/titulo-page.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ReturnsAndRefundsComponent } from './pages/returns-and-refunds/returns-and-refunds.component'
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { TituloPageComponent } from './components/titulo-page/titulo-page.compon
     NavMovilComponent,
     FaqsComponent,
     ContactComponent,
-    TituloPageComponent
+    TituloPageComponent,
+    AboutUsComponent,
+    ReturnsAndRefundsComponent
   ],
   imports: [
     CommonModule,

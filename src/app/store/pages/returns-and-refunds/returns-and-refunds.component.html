@@ -1,0 +1,100 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col">
+      <app-titulo-page titulo="Devoluciones y reembolsos"
+                       [rutas]="[
+                        {
+                          titulo: 'Home',
+                          ruta: '/'
+                        },
+                        {
+                          titulo: 'Devoluciones y reembolsos',
+                          ruta: '/returns-and-refunds'
+                        }
+                       ]">
+
+      </app-titulo-page>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <section>
+        <img src="../../../../assets/images/components/returns-and-refunds.jpg" alt="">
+        <article>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </article>
+      </section>
+    </div>
+  </div>
+
+  <div class="bloque-returns-and-refunds">
+    <div class="row">
+
+      <div class="col-md-5 col-xl-4 tree">
+
+        <p-tree [value]="nodes" [filter]="true">
+          <ng-template let-node pTemplate="url">
+              <a  (click)="pregunta(node)" ngClass="url" [routerLink]="node.data">{{node.label}}</a>
+          </ng-template>
+          <ng-template let-node pTemplate="default">
+              <b>{{node.label}}</b>
+          </ng-template>
+      </p-tree>
+
+      </div>
+
+      <div class="col-md-7 col-xl-8 content">
+
+        <div class="row imagen">
+          <!-- <img src="../../../../assets/images/components/faqs.jpg" alt=""> -->
+          <!-- <div *ngIf="node; else titulo" class="texto">
+            <h2 class="label">{{node?.label}}</h2>
+            <div [innerHTML]="txt"></div> -->
+
+
+            <div class="col-12 returns-and-refunds-parrafo">
+              <div *ngIf="node; else titulo" class="mt-4 mt-md-0">
+                <h2>{{node?.label}}</h2>
+                <div [innerHTML]="txt"></div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <ng-template #titulo>
+            <div class="col-12 returns-and-refunds-parrafo">
+              <div class="mt-4 mt-md-0">
+                <h2>Aclaraciones generales</h2>
+                <h3>Devoluciones</h3>
+                <p>
+                  Consideramos una devolución al derecho del cliente de arrepentirse de la compra por cualquier motivo que considere.
+                </p>
+                <p>
+                  Estos motivos no tendrán que ver con el servicio prestado pr la empresa y será una desición unilateral.
+                </p>
+
+                <h3>Reembolsos</h3>
+                <p>
+                  Consideramos reembolso a la desición por parte de la empresa a devolver el dinero de compra al cliente, luego de que ésta aceptara que es responsable de alguna condición en la que crea correcto reembolsar el dinero de compra.
+                </p>
+                <h4>Principio básico</h4>
+                  <p>
+                    También somos clientes de alguien. Por eso te trataremos como queremos ser tratados.
+                  </p>
+              </div>
+            </div>
+          </ng-template>
+
+        </div>
+
+
+      </div>
+  </div>
+</div>

@@ -8,11 +8,10 @@
 
 .content {
   margin: 0 15px;
-  border-radius: 7px;
+  border-radius: 6px;
   padding: 32px;
   color: white;
   background: linear-gradient(-45deg, rgba(146,200,62,1) 0%, rgba(0,178,227,1) 50%, rgba(0,61,166,1) 100%) ;
-  background: linear-gradient(-45deg, rgba(146,200,62,1) 0%, rgba(0,178,227,1) 50%, rgba(0,61,166,1) 100%);
 }
 
 .titulo{

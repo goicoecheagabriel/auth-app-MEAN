@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { TreeNode } from 'primeng/api';
 import tree from '../../../../assets/data/faqs/tree.json';
 ;
@@ -21,9 +20,9 @@ txt: string = this.nodes[0]?.children[0]?.txt?.es;
    }
 
   ngOnInit(): void {
-    setInterval(()=>{
-      this.mostrarTxt();
-    },5000)
+    // setInterval(()=>{
+    //   this.mostrarTxt();
+    // },5000)
   }
 
   ngOnChanges (): void {
@@ -35,9 +34,9 @@ txt: string = this.nodes[0]?.children[0]?.txt?.es;
   }
 
   pregunta(node:any){
-    console.log(node);
+    // console.log(node);
     this.txt = node.txt.es;
-    console.log(node);
+    // console.log(node);
     this.node = node;
   }
 

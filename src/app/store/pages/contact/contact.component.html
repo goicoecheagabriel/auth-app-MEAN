@@ -2,7 +2,17 @@
   <div class="row">
 
     <div class="col">
-      <app-titulo-page></app-titulo-page>
+      <app-titulo-page titulo="Contacto"
+                       [rutas]="[
+                        {
+                          titulo:'Home',ruta:'/'
+                        },
+                        {
+                          titulo:'Contacto',
+                          ruta:'/contact'
+                        }
+                       ]">
+      </app-titulo-page>
     </div>
 
   </div>

@@ -1,4 +1,23 @@
-<div class="container">
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col">
+      <app-titulo-page titulo="Preguntas y respuestas"
+                       [rutas]="[
+                        {
+                          titulo: 'Home',
+                          ruta: '/'
+                        },
+                        {
+                          titulo: 'Preguntas y respuestas',
+                          ruta: '/faqs'
+                        }
+                       ]">
+
+      </app-titulo-page>
+    </div>
+  </div>
+
   <div class="row">
 
     <div class="col-md-5 col-xl-4 tree">

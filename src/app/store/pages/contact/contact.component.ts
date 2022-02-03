@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ScrollTopService } from 'src/app/shared/scroll-top.service';
 import Swal from 'sweetalert2';
 
 import { MigaDePan } from '../../interfaces/migaDePan.interface';
@@ -21,7 +23,9 @@ export class ContactComponent implements OnInit {
   })
 
   constructor( private fb:FormBuilder,
-               private contactoService: ContactoService ){
+               private contactoService: ContactoService,
+               private _scrollT:ScrollTopService,
+               private _router: Router ){
 
   }
 
@@ -30,18 +34,30 @@ export class ContactComponent implements OnInit {
           center: {lat: 40.44037976583327, lng: -3.8149501574627265},
           zoom: 16
       };
+
+      console.log(this._router.url);
+      setTimeout(() => {
+        if( this._router.url == '/contact' ) {
+          this.scrollNow(15);
+        }
+      }, 1000);
+
   }
 
   // showResponse( evento:any ){
   //   console.log(":::reCAPCHA:::", evento);
   // }
 
+  scrollNow( y:number ){
+      ScrollTopService.y = y;
+      this._scrollT.scrollTop();
+  }
+
   enviar(){
     if( this.contactForm.invalid ){
       this.contactForm.markAllAsTouched();
       return;
     }
-
 
 
     console.log(":::ENVIAR:SUBMIT:FORM", this.contactForm.value);

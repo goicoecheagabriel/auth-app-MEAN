@@ -1,0 +1,59 @@
+<div class="container-fluid content">
+  <div class="row">
+
+    <div class="col">
+      <app-titulo-page titulo="Sobre nosotros"
+                       [rutas]="[
+                        {
+                          titulo:'Home',ruta:'/'
+                        },
+                        {
+                          titulo:'Sobre nosotros',
+                          ruta:'/about-us'
+                        }
+                       ]">
+      </app-titulo-page>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col">
+      <div class="imagen">
+        <img src="../../../../assets/images/components/about-us.jpg"
+        alt="Sobre nosotros">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bloque-about-us">
+    <div class="row">
+
+      <div class="col-12 col-md-6 col-lg-4 order-1 order-md-0">
+        <div class="about-us-img">
+          <img class="w-100 w-md-90" src="../../../../assets/images/components/about-us_2.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-8 order-0 order-md-1 about-us-parrafo">
+        <div class="mt-4 mt-md-0">
+          <h2>Sobre nosotros</h2>
+          <p>
+            Cuando eres joven tienes facilidad para divertirte, eres expontaneo, creativo, y perteneces al grupo de seres que solo intenta hacer algo positivo. Nosotros somos todo eso pero tenemos claro lo que nos gusta y lo que queremos.
+          </p>
+          <p>
+            Es eso lo que compartimos en esta tienda y sabemos que eres parte de nuestro grupo y te motivan las mismas cosas.
+          </p>
+            <p>
+              Gracias: <br>
+              Por estar siempre ahí...
+            </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

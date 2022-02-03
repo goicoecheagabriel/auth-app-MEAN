@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MigaDePan } from '../../interfaces/migaDePan.interface';
 
 @Component({
@@ -7,13 +7,13 @@ import { MigaDePan } from '../../interfaces/migaDePan.interface';
   styleUrls: ['./titulo-page.component.css']
 })
 export class TituloPageComponent implements OnInit {
-  rutas:MigaDePan[];
-  titulo: string = "Contacto"
+  @Input('rutas') rutas     :MigaDePan[];
+  @Input('titulo') titulo   : string = "Contacto"
 
   constructor() {
     this.rutas = [
       {
-        titulo: 'Store',
+        titulo: 'Home',
         ruta: '/'
       },
       {
