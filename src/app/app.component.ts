@@ -13,31 +13,34 @@ import { ScrollTopService } from './shared/scroll-top.service';
 export class AppComponent implements OnInit {
   title = 'authApp';
 
-  constructor( private _scrollT:ScrollTopService ){
+  constructor( private router:Router,
+               private _scrollTopService: ScrollTopService ){
   }
 
 
   ngOnInit(): void {
 
-    // this._scrollT.scrollTop();
-    // this.router.events.subscribe( (evt)=> {
-    //   if ( !(evt instanceof NavigationEnd) ){
-    //     return;
-    //   }
+    this.router.events.subscribe( (evt)=> {
+      if ( !(evt instanceof NavigationEnd) ){
+        return;
+      }
 
-    //   window.scrollTo(0,0);
-    // } )
+      // window.scrollTo(0,0);
+      this.scrollTop();
+    } )
+
   }
 
-    // ngOnChanges(changes: SimpleChanges): void {
+  scrollTop(){
+    // Se realiza un timeout para asegurarse que este scroll intente accionarse luego que cualquier otro, ya que este es cancelable.
+    setTimeout(() => {
+      // Hacemos que el scroll se fije en el panel donde cargamos la info
+      this._scrollTopService.scrollTop(document.getElementsByTagName('html')[0],0,true)
+    }, 10);
 
-    //   if (typeof Ecwid != 'undefined') Ecwid.destroy();
-    // window._xnext_initialization_scripts = [{
-    //       widgetType: 'ProductBrowser',
-    //       id: 'my-store-54091005',
-    //       arg: ["id=productBrowser"]
-    //     }];
-    // }
+    console.log(document.getElementsByTagName('html')[0]);
+  }
+
 
 
   }

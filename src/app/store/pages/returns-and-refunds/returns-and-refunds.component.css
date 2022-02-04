@@ -29,6 +29,15 @@ section div:nth-of-type(2) {
 	grid-column: 2 / 4;
 }
 
+.bloque-returns-and-refunds .url{
+  color: #c5eab3;
+  padding: 4px 8px;
+  text-decoration: none;
+}
+
+.bloque-returns-and-refunds .url:hover{
+  color: #78ad5e;
+}
 
 .bloque-returns-and-refunds{
   margin: 30px;

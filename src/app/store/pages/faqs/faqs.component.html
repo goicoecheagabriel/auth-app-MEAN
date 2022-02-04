@@ -38,16 +38,18 @@
 
       <div class="row imagen">
         <img src="../../../../assets/images/components/faqs.jpg" alt="">
-        <div *ngIf="node; else titulo" class="texto">
-          <h2 class="label">{{node?.label}}</h2>
-          <div [innerHTML]="txt"></div>
-        </div>
-
-        <ng-template #titulo>
-          <div class="texto" style="display: flex; align-items: center; text-align: center;">
-            <h2>Selecciona tu pregunta en el panel</h2>
+        <div #mensaje>
+          <div *ngIf="node; else titulo" class="texto texto-2">
+            <h2 class="label">{{node?.label}}</h2>
+            <div [innerHTML]="txt"></div>
           </div>
-        </ng-template>
+
+          <ng-template #titulo>
+            <div class="texto" style="display: flex; align-items: center; text-align: center;">
+              <h2>Selecciona tu pregunta en el panel</h2>
+            </div>
+          </ng-template>
+        </div>
 
       </div>
 

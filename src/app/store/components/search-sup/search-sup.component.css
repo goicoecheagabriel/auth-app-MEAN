@@ -23,6 +23,6 @@ section.superior .search input:focus{
 
 div article{
   display: flex;
-
+  justify-content: end;
 }
 /* ------------------------ */

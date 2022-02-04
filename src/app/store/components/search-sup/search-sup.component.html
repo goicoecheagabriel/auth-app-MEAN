@@ -3,13 +3,13 @@
 
     <div class="row align-items-center">
 
-      <div class="col-12 col-lg-2 text-center mt-2 mb-2">
+      <div class="col-12 col-sm-4 col-md-2 text-center mt-2 mb-2">
         <div class="logotipo">
           <img [routerLink]="['/']" src="https://www.nowsneakers.com/assets/images/logo-nav-web-180x75.png" alt="">
         </div>
       </div>
 
-      <div class="col-10 col-lg-8">
+      <div class="col-7 col-sm-5 col-md-9">
         <div class="search">
           <form autocomplete="off"
                 (ngSubmit)="buscar()"
@@ -26,13 +26,13 @@
         </div>
       </div>
 
-      <div class="col-2">
-        <article>
+      <div class="col-5 col-sm-3 col-md-1">
+        <article class="">
           <div >
             <a href="/store#!/~/cart">
-              <button type="button" class="btn btn-primary position-relative">
+              <button type="button" class="btn btn-light  position-relative">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
                   {{ itemsEnCarrito }}
                   <span class="visually-hidden">unread messages</span>
                 </span>
@@ -40,9 +40,9 @@
             </a>
           </div>
 
-          <div>
+          <div class="d-block d-md-none">
             <button type="button"
-                    class="btn btn-primary position-relative mx-3"
+                    class="btn btn-light position-relative mx-3"
                     (click)="openMenu()">
               <i class="fas fa-bars"></i>
               <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
