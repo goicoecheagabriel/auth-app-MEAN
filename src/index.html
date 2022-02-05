@@ -43,5 +43,10 @@
       arg: ["id=productBrowser"]
     }];
     console.log("TYPEOFF ECWID", typeof Ecwid)
+
+    window.ec = window.ec || Object();
+    window.ec.storefront = window.ec.storefront || Object();
+    window.ec.storefront.product_filters_opened_by_default_on_category_page = false; // shows product SKU on hover in product list
+    Ecwid.refreshConfig();
   </script>
 </html>
