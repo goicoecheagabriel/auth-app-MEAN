@@ -38,7 +38,6 @@ export class AppComponent implements OnInit {
       this._scrollTopService.scrollTop(document.getElementsByTagName('html')[0],0,true)
     }, 10);
 
-    console.log(document.getElementsByTagName('html')[0]);
   }
 
 

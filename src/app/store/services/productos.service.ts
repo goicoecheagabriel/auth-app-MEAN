@@ -27,7 +27,8 @@ export class ProductosService {
       },
       params:{
         limit:18,
-        attribute_portada: 'true,oferta',
+        attribute_portada: 'true',
+        // attribute_portada: 'true,oferta',
         // sortBy: "PRICE_DESC"
         //category: 92775439
         // attribute_lifestyle: 'Soccer'

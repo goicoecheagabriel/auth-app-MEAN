@@ -78,6 +78,13 @@ export class EcwidComponent implements OnInit, OnChanges, OnDestroy {
     window.ecwid_script_defer = true;
     window.ecwid_dynamic_widgets = true;
 
+    // Esto hace que ecwid deje de usar urls basadas en # y pase a usarlas basadas en ?
+    window.ec = window.ec || {};
+    window.ec.config = window.ec.config || {};
+    window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
+    window.ec.config.storefrontUrls.cleanUrls = true;
+    window.ec.config.storefrontUrls.queryBasedCleanUrls = true;
+
     console.log("TYPEOFF ECWID", typeof Ecwid)
     if (typeof Ecwid !== 'undefined') {
     // if (typeof Ecwid != 'undefined' && typeof Ecwid.destroy == 'function'){
@@ -91,8 +98,12 @@ export class EcwidComponent implements OnInit, OnChanges, OnDestroy {
       arg: ["id=productBrowser"]
     }];
 
+
     xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-54091005");
 
+  //  setTimeout(() => {
+
+  //  }, 300);
 
 
 

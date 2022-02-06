@@ -25,8 +25,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    onSameUrlNavigation: 'reload',
-    preloadingStrategy: PreloadAllModules
+    // onSameUrlNavigation: 'reload',
+    // preloadingStrategy: PreloadAllModules,
+    useHash:true
   })],
   exports: [RouterModule]
 })
