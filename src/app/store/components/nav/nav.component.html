@@ -17,7 +17,7 @@
 
         <ul *ngIf="seccion.tipo == 'simple'" class="ul-child">
           <li *ngFor="let itemSimple of seccion.items; let j = index" >
-            <a [routerLink]="itemSimple.ruta">{{ itemSimple.titulo }}</a>
+            <a [href]="itemSimple.ruta">{{ itemSimple.titulo }}</a>
           </li>
         </ul>
 

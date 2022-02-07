@@ -262,11 +262,11 @@
           "ruta": "/store#!/Air-Force-1/c/92775403"
         },
         {
-          "imagen": "http://192.168.0.25:4001/assets/images/components/Jordan_Travis_Scott_trans.png",
+          "imagen": "/assets/images/components/Jordan_Travis_Scott_trans.png",
           "ruta": "/store#!/Air-Jordan-1-x-Travis-Scott/p/320319524"
         },
         {
-          "imagen": "http://192.168.0.25:4001/assets/images/components/Jordan_UNC_trans.png",
+          "imagen": "/assets/images/components/Jordan_UNC_trans.png",
           "ruta": "/store#!/Air-Jordan-1-Retro-High-UNC-Patent/p/320319503"
         }
       ]
