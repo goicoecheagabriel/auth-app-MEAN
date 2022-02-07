@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  dominioBase: 'https://my.nowsneakers.com:3007',
+  dominioBase: 'http://my.nowsneakers.com:3007',
   baseUrl: 'http://my.nowsneakers.com:3007/api',
   apiEcwid:'https://app.ecwid.com/api/v3/54091005',
   apiKeyEcwid:'public_413dGm5kvXjvWKwQv5FP7xmnMZ4q3i7U',
