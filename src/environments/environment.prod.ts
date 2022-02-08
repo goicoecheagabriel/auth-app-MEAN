@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  dominioBase: 'http://my.nowsneakers.com:3007',
-  baseUrl: 'http://my.nowsneakers.com:3007/api',
+  dominioBase: 'https://my.nowsneakers.com',
+  baseUrl: 'https://my.nowsneakers.com/api',
   apiEcwid:'https://app.ecwid.com/api/v3/54091005',
   apiKeyEcwid:'public_413dGm5kvXjvWKwQv5FP7xmnMZ4q3i7U',
   storeId: 54091005,

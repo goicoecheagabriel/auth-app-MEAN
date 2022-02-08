@@ -19,6 +19,7 @@ export class SuscriptorService {
 
   registrar( body: {} ) {
     const url = `${ this.baseUrl }/suscriptor/new`;
+    // const url = `/suscriptor/new`;
     // const body = { email, name, origen, validado, aceptaPublicidad };
     const headers = new HttpHeaders()
       .set( 'x-token', environment['x-token'] )

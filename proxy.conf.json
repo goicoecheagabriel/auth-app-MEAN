@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "http://my.nowsneakers.com:3007",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
