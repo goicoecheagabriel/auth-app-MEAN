@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col">
 
-      <p-table [columns]="cols"
+      <p-card>
+
+        <p-table [columns]="cols"
                [value]="suscriptores"
                [paginator]="true"
                [rows]="10"
@@ -61,15 +63,17 @@
       </ng-template>
 
       <ng-template pTemplate="paginatorleft" let-state>
-        <button type="button" pButton icon="pi pi-chevron-left"></button>
+        <button title="bajar en excel" (click)="exportExcel()" type="button" pButton icon="pi pi-download"></button>
       </ng-template>
       <ng-template pTemplate="paginatorright">
-        <button type="button" pButton icon="pi pi-chevron-right"></button>
+        <button disabled="true" type="button" pButton icon="pi pi-chevron-right"></button>
       </ng-template>
       <ng-template let-item pTemplate="paginatordropdownitem">
 
       </ng-template>
       </p-table>
+
+      </p-card>
 
     </div>
   </div>
