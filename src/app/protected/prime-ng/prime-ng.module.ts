@@ -6,6 +6,7 @@ import { CardModule }           from 'primeng/card';
 import { SplitterModule }       from 'primeng/splitter';
 import { ScrollPanelModule }    from 'primeng/scrollpanel';
 import { SidebarModule }        from 'primeng/sidebar';
+import { TableModule }          from 'primeng/table';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SidebarModule }        from 'primeng/sidebar';
     CardModule,
     SplitterModule,
     ScrollPanelModule,
-    SidebarModule
+    SidebarModule,
+    TableModule
   ]
 })
 export class PrimeNgModule { }

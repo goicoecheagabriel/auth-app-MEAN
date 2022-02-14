@@ -7,7 +7,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 // Módulo personalizado
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { HomeComponent } from './dashboard/pages/home/home.component';
-import { ChatComponent } from './dashboard/pages/chat/chat.component'
+import { ChatComponent } from './dashboard/pages/chat/chat.component';
+import { SuscriptorsComponent } from './dashboard/pages/suscriptors/suscriptors.component';
 
 
 
@@ -16,7 +17,8 @@ import { ChatComponent } from './dashboard/pages/chat/chat.component'
   declarations: [
     DashboardComponent,
     HomeComponent,
-    ChatComponent
+    ChatComponent,
+    SuscriptorsComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <p-table [columns]="cols"
+               [value]="suscriptores"
+               [paginator]="true"
+               [rows]="10"
+               sortMode="multiple"
+               sortField="_id"
+               selectionMode="multiple"
+               [(selection)]="selectedProducts">
+
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <!-- checkbox select multiple -->
+            <th style="width: 2.25em">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+
+            <th *ngFor="let col of columns"
+                [pSortableColumn]="col.field">
+              {{ col.header }}
+              <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+          </tr>
+          <!-- El proximo tr contiene los filtros de las columnas o campos -->
+          <tr>
+            <th>
+              <!-- Columna fantasma en el filtro para el checkbox -->
+            </th>
+            <th>
+              <!-- <p-columnFilter type="text" placeholder="id" field="_id"></p-columnFilter> -->
+            </th>
+            <th>
+              <p-columnFilter type="text" placeholder="email" field="email"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="text" placeholder="nombre" field="name"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="boolean" placeholder="acepta publicidad" field="aceptaPublicidad"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="boolean" placeholder="email validado" field="validado"></p-columnFilter>
+            </th>
+        </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-rowData let-suscriptores let-columns="columns">
+          <tr>
+            <!-- Checkbox para seleccion de rows -->
+            <td>
+              <p-tableCheckbox [value]="suscriptores"></p-tableCheckbox>
+            </td>
+
+            <td autoLayout="true" *ngFor="let col of columns" [pSelectableRow]="rowData">
+              {{suscriptores[col.field]}}
+            </td>
+          </tr>
+      </ng-template>
+
+      <ng-template pTemplate="paginatorleft" let-state>
+        <button type="button" pButton icon="pi pi-chevron-left"></button>
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+        <button type="button" pButton icon="pi pi-chevron-right"></button>
+      </ng-template>
+      <ng-template let-item pTemplate="paginatordropdownitem">
+
+      </ng-template>
+      </p-table>
+
+    </div>
+  </div>
+</div>
