@@ -91,7 +91,7 @@ export class EcwidComponent implements OnInit, OnChanges, OnDestroy {
       arg: ["id=productBrowser"]
     }];
 
-    xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-54091005");
+    //xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-54091005");
 
 
 
