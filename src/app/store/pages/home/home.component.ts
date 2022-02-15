@@ -11,21 +11,17 @@ import { EcwidService } from '../../services/ecwid.service';
 export class HomeComponent implements OnInit {
   @ViewChild('separador') separador!: ElementRef;
 
-  constructor(public ecwidService: EcwidService,
-              private _renderer2:Renderer2,
-              private route: ActivatedRoute,
-              private _propsGeneralService: PropsGeneralService) {
-
-    // this.ecwidService.renderer = this._renderer2;
-    // this.ecwidService.cargarStore();
+  constructor( private route: ActivatedRoute,
+               private ecwidService: EcwidService,
+               private _propsGeneralService: PropsGeneralService) {
   }
 
   ngOnInit(): void {
-    // console.log('STATUS LOAD STORE:', this.ecwidService.storeLoad )
-
     this.route.paramMap.subscribe( ( param ) => {
       console.log("PARAMS DESDE HOME", param);
     } )
+
+    // this.ecwidService.cargarStore();
 
   }
 

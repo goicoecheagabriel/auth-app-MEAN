@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { ScrollTopService } from './shared/scroll-top.service';
 
@@ -14,8 +14,7 @@ export class AppComponent implements OnInit {
   title = 'authApp';
 
   constructor( private router:Router,
-               private _scrollTopService: ScrollTopService ){
-  }
+               private _scrollTopService: ScrollTopService ){}
 
 
   ngOnInit(): void {
@@ -25,7 +24,6 @@ export class AppComponent implements OnInit {
         return;
       }
 
-      // window.scrollTo(0,0);
       this.scrollTop();
     } )
 
@@ -38,9 +36,5 @@ export class AppComponent implements OnInit {
       this._scrollTopService.scrollTop(document.getElementsByTagName('html')[0],0,true)
     }, 10);
 
-    console.log(document.getElementsByTagName('html')[0]);
   }
-
-
-
-  }
+}

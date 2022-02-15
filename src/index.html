@@ -27,27 +27,5 @@
 </head>
 <body>
   <app-root></app-root>
-
-
 </body>
-<script type="text/javascript" src="https://app.ecwid.com/script.js?54091005&data_platform=code&data_date=2022-01-17"  async="async"></script>
-
-<!-- Widget de Ecwid dinamico -->
-  <script>
-    window.ecwid_script_defer = true;
-    window.ecwid_dynamic_widgets = true;
-    console.log("TYPEOFF ECWID", typeof Ecwid)
-    if (typeof Ecwid != 'undefined') Ecwid.destroy();
-    window._xnext_initialization_scripts = [{
-      widgetType: 'ProductBrowser',
-      id: 'my-store-54091005',
-      arg: ["id=productBrowser"]
-    }];
-    console.log("TYPEOFF ECWID", typeof Ecwid)
-
-    window.ec = window.ec || Object();
-    window.ec.storefront = window.ec.storefront || Object();
-    window.ec.storefront.product_filters_opened_by_default_on_category_page = false; // shows product SKU on hover in product list
-    Ecwid.refreshConfig();
-  </script>
 </html>
