@@ -19,7 +19,7 @@ export class SuscriptorsComponent implements OnInit {
   { field:"aceptaPublicidad", header:"Publicidad" },
   { field:"validado", header:"Validado" }
 ]
-selectedProducts!: Suscriptor[];
+selectedProducts: Suscriptor[] = [];
   constructor( private _suscriptorsService: SuscriptorsService ) { }
 
   ngOnInit(): void {
@@ -35,7 +35,8 @@ selectedProducts!: Suscriptor[];
 
   exportExcel() {
     import("xlsx").then(xlsx => {
-        const worksheet = xlsx.utils.json_to_sheet(this.selectedProducts || this.suscriptores);
+      console.log(this.selectedProducts)
+        const worksheet = xlsx.utils.json_to_sheet(this.selectedProducts.length > 0 ? this.selectedProducts : this.suscriptores);
         const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
         const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
         this.saveAsExcelFile(excelBuffer, "suscriptores");
