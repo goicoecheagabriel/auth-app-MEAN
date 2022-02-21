@@ -1,4 +1,4 @@
-## Extractos de codgio
+## Extractos de código
 
 ### Con el siguiente codigo podemos acceder al objeto global y enviarlo dentro de un evento de Ecwid.
 
