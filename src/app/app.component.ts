@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { ScrollTopService } from './shared/scroll-top.service';
+import { TranslateService } from '@ngx-translate/core'
+
 
 // declare var window: any;
 // declare var Ecwid: any;
@@ -14,7 +16,15 @@ export class AppComponent implements OnInit {
   title = 'authApp';
 
   constructor( private router:Router,
-               private _scrollTopService: ScrollTopService ){}
+               private _scrollTopService: ScrollTopService,
+               private _translate: TranslateService){
+                this.setAppLanguage();
+               }
+
+  setAppLanguage() {
+    this._translate.setDefaultLang('en');
+    this._translate.use( this._translate.getBrowserLang()! );
+  }
 
 
   ngOnInit(): void {

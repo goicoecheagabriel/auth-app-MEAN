@@ -2,17 +2,8 @@
 
   <div class="row">
     <div class="col">
-      <app-titulo-page titulo="Devoluciones y reembolsos"
-                       [rutas]="[
-                        {
-                          titulo: 'Home',
-                          ruta: '/'
-                        },
-                        {
-                          titulo: 'Devoluciones y reembolsos',
-                          ruta: '/returns-and-refunds'
-                        }
-                       ]">
+      <app-titulo-page [titulo]="'store_returns_and_refunds_001' | translate"
+                       [rutas]="ruta">
 
       </app-titulo-page>
     </div>
@@ -71,22 +62,30 @@
           <ng-template #titulo>
             <div class="col-12 returns-and-refunds-parrafo">
               <div class="mt-4 mt-md-0">
-                <h2>Aclaraciones generales</h2>
-                <h3>Devoluciones</h3>
+                <h2>
+                  {{ 'store_returns_and_refunds_004' | translate }}
+                </h2>
+                <h3>
+                  {{ 'store_returns_and_refunds_005' | translate }}
+                </h3>
                 <p>
-                  Consideramos una devolución al derecho del cliente de arrepentirse de la compra por cualquier motivo que considere.
+                  {{ 'store_returns_and_refunds_006' | translate }}
                 </p>
                 <p>
-                  Estos motivos no tendrán que ver con el servicio prestado pr la empresa y será una desición unilateral.
+                  {{ 'store_returns_and_refunds_007' | translate }}
                 </p>
 
-                <h3>Reembolsos</h3>
+                <h3>
+                  {{ 'store_returns_and_refunds_008' | translate }}
+                </h3>
                 <p>
-                  Consideramos reembolso a la desición por parte de la empresa a devolver el dinero de compra al cliente, luego de que ésta aceptara que es responsable de alguna condición en la que crea correcto reembolsar el dinero de compra.
+                  {{ 'store_returns_and_refunds_009' | translate }}
                 </p>
-                <h4>Principio básico</h4>
+                <h4>
+                  {{ 'store_returns_and_refunds_010' | translate }}
+                </h4>
                   <p>
-                    También somos clientes de alguien. Por eso te trataremos como queremos ser tratados.
+                    {{ 'store_returns_and_refunds_011' | translate }}
                   </p>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 
 import { ContactoService } from '../../services/contacto.service';
@@ -12,6 +13,15 @@ import { ContactoService } from '../../services/contacto.service';
 export class ContactComponent implements OnInit {
   options: any;
   overlays!: any[];
+  ruta = [
+    {
+      titulo:this._translate.instant('store_contact_002'),ruta:'/'
+    },
+    {
+      titulo:this._translate.instant('store_contact_003'),
+      ruta:'/contact'
+    }
+   ]
 
   contactForm: FormGroup = this.fb.group({
     nombre:   ['',[Validators.required, Validators.minLength(3)]],
@@ -20,7 +30,8 @@ export class ContactComponent implements OnInit {
   })
 
   constructor( private fb:FormBuilder,
-               private contactoService: ContactoService ){
+               private contactoService: ContactoService,
+               private _translate: TranslateService  ){
 
   }
 

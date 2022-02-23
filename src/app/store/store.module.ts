@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { TranslateMiModule } from '../shared/translate/translateMi.module';
+
 import { StoreRoutingModule } from './store-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { EcwidComponent } from './pages/ecwid/ecwid.component';
@@ -56,7 +58,8 @@ import { ReturnsAndRefundsComponent } from './pages/returns-and-refunds/returns-
     StoreRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    PrimeNgModule
+    PrimeNgModule,
+    TranslateMiModule
   ]
 })
 export class StoreModule { }

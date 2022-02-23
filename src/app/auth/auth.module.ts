@@ -6,6 +6,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { MainComponent } from './pages/main/main.component';
+import { TranslateMiModule } from '../shared/translate/translateMi.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MainComponent } from './pages/main/main.component';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateMiModule
   ]
 })
 export class AuthModule { }

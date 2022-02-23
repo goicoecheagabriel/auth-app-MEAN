@@ -1,8 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { TreeNode } from 'primeng/api';
 import { ScrollTopService } from 'src/app/shared/scroll-top.service';
 
-import tree from '../../../../assets/data/returns-and-refunds/tree.json';
+import tree from '../../../../assets/data/returns-and-refunds/tree.en.json';
 
 @Component({
   selector: 'app-returns-and-refunds',
@@ -15,12 +16,36 @@ export class ReturnsAndRefundsComponent implements OnInit {
   node!: TreeNode;
   txt: string = this.nodes[0]?.children[0]?.txt?.es;
   @ViewChild('panel') panel!: ElementRef;
+  ruta = [
+    {
+      titulo: this._translate.instant('store_returns_and_refunds_002'),
+      ruta: '/'
+    },
+    {
+      titulo: this._translate.instant('store_returns_and_refunds_003'),
+      ruta: '/returns-and-refunds'
+    }
+   ]
 
-  constructor( private _scrollTopService: ScrollTopService ) {
+  constructor( private _scrollTopService: ScrollTopService,
+               private _translate:TranslateService ) {
     // this.pregunta(this.nodes[0]);
   }
 
   ngOnInit(): void {
+    let lng = this._translate.getBrowserLang();
+    let exist = this.UrlExists(`../../../../assets/data/returns-and-refunds/tree.${ lng }.json`);
+    import(`../../../../assets/data/returns-and-refunds/tree.${exist?lng:'en'}.json`).then( ({default:t}) => {
+      this.nodes = t;
+    });
+
+  }
+
+  UrlExists(url:string) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status != 404;
   }
 
   pregunta(node:any){

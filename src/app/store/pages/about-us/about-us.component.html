@@ -2,16 +2,9 @@
   <div class="row">
 
     <div class="col">
-      <app-titulo-page titulo="Sobre nosotros"
-                       [rutas]="[
-                        {
-                          titulo:'Home',ruta:'/'
-                        },
-                        {
-                          titulo:'Sobre nosotros',
-                          ruta:'/about-us'
-                        }
-                       ]">
+
+      <app-titulo-page [titulo]="'store_about_us_001' | translate"
+                       [rutas]="ruta">
       </app-titulo-page>
     </div>
 
@@ -22,7 +15,7 @@
     <div class="col">
       <div class="imagen">
         <img src="../../../../assets/images/components/about-us.jpg"
-        alt="Sobre nosotros">
+        [alt]="'store_about_use_004' | translate">
       </div>
     </div>
 
@@ -39,16 +32,18 @@
 
       <div class="col-12 col-md-6 col-lg-8 order-0 order-md-1 about-us-parrafo">
         <div class="mt-4 mt-md-0">
-          <h2>Sobre nosotros</h2>
+          <h2>
+            {{ 'store_about_us_005' | translate }}
+          </h2>
           <p>
-            Cuando eres joven tienes facilidad para divertirte, eres expontaneo, creativo, y perteneces al grupo de seres que solo intenta hacer algo positivo. Nosotros somos todo eso pero tenemos claro lo que nos gusta y lo que queremos.
+            {{ 'store_about_us_006' | translate }}
           </p>
           <p>
-            Es eso lo que compartimos en esta tienda y sabemos que eres parte de nuestro grupo y te motivan las mismas cosas.
+            {{ 'store_about_us_007' | translate }}
           </p>
             <p>
-              Gracias: <br>
-              Por estar siempre ahí...
+              {{ 'store_about_us_008' | translate }} <br>
+              {{ 'store_about_us_009' | translate }}
             </p>
         </div>
       </div>

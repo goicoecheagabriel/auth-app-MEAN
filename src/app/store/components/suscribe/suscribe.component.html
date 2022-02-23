@@ -30,10 +30,10 @@
         <div
               class="content">
 
-          <h2>Participa del sorteo de la <br><span style="color: #00b5d6;">camiseta del PSG</span></h2>
+          <h2>{{ 'store_suscribe_001' | translate }} <br><span style="color: #00b5d6;">{{ 'store_suscribe_002' | translate }}</span></h2>
 
           <p>
-            Suscribete a nuestro boletín informativo y participa en el sorteo de una camiseta del PSG. Podrás seleccionar el color y la talla al momento de ganar. A que esperas, ingresa tu correo y viste la 30 del PSG.
+            {{ 'store_suscribe_003' | translate }}
           </p>
 
           <form *ngIf="!suscrito; else gracias"
@@ -44,8 +44,8 @@
               <input type="text"
                      formControlName="email"
                      class="form-control"
-                     placeholder="Introduce un correo válido" aria-label="Recipient's username" aria-describedby="button-addon2">
-              <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Participar</button>
+                     [placeholder]="'store_suscribe_004' | translate" aria-label="Recipient's username" aria-describedby="button-addon2">
+              <button class="btn btn-outline-secondary" type="submit" id="button-addon2">{{ 'store_suscribe_005' | translate }}</button>
             </div>
 
             <div class="form-check">
@@ -55,14 +55,14 @@
                      value=""
                      id="recibir-correos">
               <label class="form-check-label" for="recibir-correos">
-                Acepto recibir información a mi correo
+                {{ 'store_suscribe_006' | translate }}
               </label>
             </div>
           </form>
 
           <ng-template #gracias>
-            Usuario suscrito con exito <br>
-            <span class="celeste">Buena suerte!!!</span>
+            {{ 'store_suscribe_007' | translate }} <br>
+            <span class="celeste">{{ 'store_suscribe_008' | translate }}</span>
           </ng-template>
 
         </div>

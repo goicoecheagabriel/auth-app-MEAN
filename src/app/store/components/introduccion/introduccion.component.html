@@ -5,17 +5,23 @@
 
       <div class="col-12 col-lg-5 order-1 order-md-0">
 
-        <h5 class="comentario text-gray mt-4 mt-md-0">Cientos de ventas</h5>
+        <h5 class="comentario text-gray mt-4 mt-md-0">
+          {{ 'store_introduccion_001' | translate }}
+        </h5>
 
-        <h1 class="titulo">Momentos simples e inolvidables</h1>
+        <h1 class="titulo">
+          {{ 'store_introduccion_002' | translate }}
+        </h1>
 
-        <p class="descripcion">Somos expertos en enviar a la puerta de tu casa, lo que estás esperando. Cada mes alegramos a cientos de personas entregándoles felicidad.</p>
+        <p class="descripcion">
+          {{ 'store_introduccion_003' | translate }}
+        </p>
 
         <div class="btn-block">
-          <a [routerLink]="'/store'" fragment="!/Jordan/c/92775404" class="call-to-action btn btn--large btn--yellow" rel="nofollow noopener nofollow  noopener">Comprar en la tienda</a>
+          <a [routerLink]="'/store'" fragment="!/Jordan/c/92775404" class="call-to-action btn btn--large btn--yellow" rel="nofollow noopener nofollow  noopener">{{ 'store_introduccion_004' | translate }}</a>
           <div class="texto-cierre text-small text-gray">
-            Quiéres ir directo a lo más pedido?
-            <a href="store#!/c/0" rel="nofollow noopener">Ver destacados.</a>
+            {{ 'store_introduccion_005' | translate }}
+            <a href="store#!/c/0" rel="nofollow noopener">{{ 'store_introduccion_006' | translate }}</a>
           </div>
         </div>
       </div>
@@ -43,11 +49,15 @@
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="visually-hidden">
+              {{ 'store_introduccion_007' | translate }}
+            </span>
           </button>
           <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="visually-hidden">
+              {{ 'store_introduccion_008' | translate }}
+            </span>
           </button>
 
           <!-- Utilizado en el ngAfterViewInit() para reactivar el cycle del slider -->

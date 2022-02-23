@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { SuscriptorService } from '../../services/suscriptor.service';
 import Swal from 'sweetalert2';
 import { Suscriptor } from '../../interfaces/suscriptor.interface';
@@ -19,7 +20,8 @@ export class SuscribeComponent implements OnInit {
   })
 
   constructor( private _suscriptorService: SuscriptorService,
-               private _fb: FormBuilder ) { }
+               private _fb: FormBuilder,
+               private _translate: TranslateService ) { }
 
   ngOnInit(): void {
 
@@ -30,8 +32,8 @@ export class SuscribeComponent implements OnInit {
   registrar(){
     if( this.suscriptorForm.invalid ) {
       Swal.fire({
-        title: "Atención",
-        text: "Verifique su correo y active aceptar"
+        title: this._translate.instant('store_suscribe_009'),
+        text: this._translate.instant('store_suscribe_010')
       })
 
       return;

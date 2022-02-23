@@ -2,16 +2,8 @@
   <div class="row">
 
     <div class="col">
-      <app-titulo-page titulo="Contacto"
-                       [rutas]="[
-                        {
-                          titulo:'Home',ruta:'/'
-                        },
-                        {
-                          titulo:'Contacto',
-                          ruta:'/contact'
-                        }
-                       ]">
+      <app-titulo-page [titulo]="'store_contact_001' | translate "
+                       [rutas]="ruta">
       </app-titulo-page>
     </div>
 
@@ -19,11 +11,6 @@
 
   <div class="row">
     <div class="col">
-
-      <!-- <div class="mapa">
-        <p-gmap #gmap [style]="{'width':'100%','height':'60vh', 'margin-bottom': '1em'}" [options]="options"
-        ></p-gmap>
-      </div> -->
 
       <div class="imagen">
         <img src="../../../../assets/images/components/contact.jpg"
@@ -40,8 +27,8 @@
       <div class="col-12">
 
         <div class="contact-us">
-          <h2 class="titulo">Contactanos</h2>
-          <p class="descripcion">Nos pondremos en contacto lo antes posible para responder a sus preguntas</p>
+          <h2 class="titulo">{{ 'store_contact_004' | translate }}</h2>
+          <p class="descripcion">{{ 'store_contact_005' | translate }}</p>
         </div>
 
       </div>
@@ -59,9 +46,9 @@
                    style="width: 100%;"
                    type="text"
                    pInputText
-                   placeholder="Su nombre"/>
+                   [placeholder]="'store_contact_006' | translate"/>
             <small class="error" *ngIf="isInvalid('nombre')">
-              El nombre debe tener al menos 3 caracteres.
+              {{ 'store_contact_007' | translate }}
             </small>
           </div>
           <div>
@@ -70,9 +57,9 @@
                    style="width: 100%;"
                    type="email"
                    pInputText
-                   placeholder="Su email"/>
+                   [placeholder]="'store_contact_008' | translate"/>
               <small class="error" *ngIf="isInvalid('email')">
-                El formato del email es incorrecto.
+                {{ 'store_contact_009' | translate }}
               </small>
           </div>
           <div>
@@ -81,10 +68,10 @@
                       cols="2"
                       rows="10"
                       pInputTextarea
-                      placeholder="Su mensaje">
+                      [placeholder]="'store_contact_010' | translate">
             </textarea>
             <small class="error" *ngIf="isInvalid('mensaje')">
-              El mensaje debe tener como mínimo 30 caracteres y un máximo de 256.
+              {{ 'store_contact_011' | translate }}
             </small>
           </div>
 
@@ -92,7 +79,7 @@
                     "
                     type="submit"
                     pButton
-                    label="ENVIAR MENSAJE" >
+                    [label]="'store_contact_012' | translate">
           </button>
 
         </form>
@@ -107,10 +94,10 @@
           </div>
           <div class="texto">
             <div class="article-titulo">
-              Dirección
+              {{ 'store_contact_013' | translate }}
             </div>
             <div class="article-descripcion">
-              Av altos hornos de Vizcaya 38, Bilbao, España.
+              {{ 'store_contact_014' | translate }}
             </div>
           </div>
         </article>
@@ -121,10 +108,10 @@
           </div>
           <div class="texto">
             <div class="article-titulo">
-              Teléfono
+              {{ 'store_contact_015' | translate }}
             </div>
             <div class="article-descripcion">
-              +34 688725504
+              {{ 'store_contact_016' | translate }}
             </div>
           </div>
         </article>
@@ -135,10 +122,10 @@
           </div>
           <div class="texto">
             <div class="article-titulo">
-              Email
+              {{ 'store_contact_017' | translate }}
             </div>
             <div class="article-descripcion">
-              hola@nowsneakers.com
+              {{ 'store_contact_018' | translate }}
             </div>
           </div>
         </article>

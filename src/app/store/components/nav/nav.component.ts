@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 import { Menu } from '../../interfaces/menu.interface';
-import menuPrincipal from '../../utilities/menu.utility.json';
 
 @Component({
   selector: 'app-nav',
@@ -10,13 +10,25 @@ import menuPrincipal from '../../utilities/menu.utility.json';
 })
 export class NavComponent implements OnInit, OnChanges {
 
-  menu: Menu = menuPrincipal;
+  menu!: Menu;
 
 
-  constructor( ) {
-    console.log(this.menu)
-    // menuPrincipal.secciones[0].titulo="Mi titulo"
+  constructor( private _translate: TranslateService ) {
+    let lng = this._translate.getBrowserLang();
+    let exist = this.UrlExists(`../../../../assets/data/nav/menu.${ lng }.utility.json`);
+
+    import(`../../../../assets/data/nav/menu.${exist?lng:'en'}.utility.json`).then( m => { return this.menu = m
+    } );
   }
+
+  UrlExists(url:string) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status != 404;
+  }
+
+
 
   ngOnInit(): void {
     console.warn(":::ngOnInit:::nav.component")

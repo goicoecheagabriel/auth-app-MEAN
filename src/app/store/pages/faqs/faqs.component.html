@@ -2,17 +2,8 @@
 
   <div class="row">
     <div class="col">
-      <app-titulo-page titulo="Preguntas y respuestas"
-                       [rutas]="[
-                        {
-                          titulo: 'Home',
-                          ruta: '/'
-                        },
-                        {
-                          titulo: 'Preguntas y respuestas',
-                          ruta: '/faqs'
-                        }
-                       ]">
+      <app-titulo-page [titulo]="'store_faqs_001' | translate"
+                       [rutas]="ruta">
 
       </app-titulo-page>
     </div>
@@ -22,7 +13,7 @@
 
     <div class="col-md-5 col-xl-4 tree">
 
-      <p-tree [value]="nodes" [filter]="true">
+      <p-tree *ngIf="nodes" [value]="nodes" [filter]="true">
         <ng-template let-node pTemplate="url">
             <a  (click)="pregunta(node)" ngClass="url" [routerLink]="node.data">{{node.label}}</a>
         </ng-template>
@@ -46,7 +37,9 @@
 
           <ng-template #titulo>
             <div class="texto" style="display: flex; align-items: center; text-align: center;">
-              <h2>Selecciona tu pregunta en el panel</h2>
+              <h2>
+                {{ 'store_faqs_004' | translate }}
+              </h2>
             </div>
           </ng-template>
         </div>

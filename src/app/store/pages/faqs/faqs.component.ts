@@ -1,11 +1,11 @@
-import { Component, ElementRef, OnInit, TemplateRef, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { TreeNode } from 'primeng/api';
+
 import { PropsGeneralService } from 'src/app/shared/props-general.service';
 import { ScrollTopService } from 'src/app/shared/scroll-top.service';
-import tree from '../../../../assets/data/faqs/tree.json';
+import tree from '../../../../assets/data/faqs/tree.en.json';
 ;
-
-
 
 @Component({
   selector: 'app-faqs',
@@ -13,31 +13,44 @@ import tree from '../../../../assets/data/faqs/tree.json';
   styleUrls: ['./faqs.component.css']
 })
 export class FaqsComponent {
-nodes: TreeNode[]|any = tree;
+nodes: TreeNode[] | any = tree;
 node!: TreeNode;
 txt: string = this.nodes[0]?.children[0]?.txt?.es;
 @ViewChild('mensaje') mensaje!: ElementRef;
+ruta = [
+  {
+    titulo: this._translate.instant('store_faqs_002'),
+    ruta: '/'
+  },
+  {
+    titulo: this._translate.instant('store_faqs_003'),
+    ruta: '/faqs'
+  }
+ ]
 
   constructor( private _propsGeneralService: PropsGeneralService,
-               private _scrollTopService:ScrollTopService ) {
+               private _scrollTopService:ScrollTopService,
+               private _translate: TranslateService ) {
+
     console.log(":::NODE",this.node);
     console.log(this.mensaje);
-   }
-
-   ngAfterViewInit(): void {
-    // setInterval(()=>{
-    //   this.mostrarTxt();
-    // },5000)
-    console.log(this.mensaje.nativeElement);
 
   }
 
-  ngOnChanges (): void {
+  ngOnInit(): void {
+    let lng = this._translate.getBrowserLang();
+    let exist = this.UrlExists(`../../../../assets/data/faqs/tree.${ lng }.json`);
+    import(`../../../../assets/data/faqs/tree.${exist?lng:'en'}.json`).then( ({default:t}) => {
+      this.nodes = t;
+    });
 
   }
 
-  mostrarTxt(){
-    // console.log(this.rutaActiva.snapshot.params)
+  UrlExists(url:string) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status != 404;
   }
 
 
