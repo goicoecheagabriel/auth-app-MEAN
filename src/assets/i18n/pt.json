@@ -1,10 +1,10 @@
 {
-  "auth_login_001": "LOGIN",
+  "auth_login_001": "CONECTE-SE",
   "auth_login_002": "E-mail",
   "auth_login_003": "Digite seu e-mail",
   "auth_login_004": "Senha",
   "auth_login_005": "Digite sua senha",
-  "auth_login_006": "Login",
+  "auth_login_006": "Conecte-se",
   "auth_login_007": "Não tem uma conta?",
   "auth_login_008": "Crie um aqui",
   "auth_register_001": "NOVO USUÁRIO",

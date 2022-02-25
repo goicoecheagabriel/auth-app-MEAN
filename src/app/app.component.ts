@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   constructor( private router:Router,
                private _scrollTopService: ScrollTopService,
-               private _translate: TranslateService){
+               public _translate: TranslateService){
                 this.setAppLanguage();
                }
 
