@@ -41,8 +41,8 @@ export class ReturnsAndRefundsComponent implements OnInit {
 
     this._translate.get( ['store_returns_and_refunds_002', 'store_returns_and_refunds_003'] )
       .subscribe( translations => {
-        this.ruta[0].ruta = translations['store_returns_and_refunds_002'];
-        this.ruta[1].ruta = translations['store_returns_and_refunds_003'];
+        this.ruta[0].titulo = translations['store_returns_and_refunds_002'];
+        this.ruta[1].titulo = translations['store_returns_and_refunds_003'];
       } )
 
   }
