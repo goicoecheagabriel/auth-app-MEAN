@@ -1,7 +1,7 @@
 {
   "secciones": [
     {
-      "titulo": "Top categorías",
+      "titulo": "Principais categorias",
       "icono": "fas fa-crown",
       "tipo": "simple",
       "items": [
@@ -250,7 +250,7 @@
       ]
     },
     {
-      "titulo": "Más Pedidos",
+      "titulo": "Mais pedidos",
       "tipo": "grafico",
       "items": [
         {
@@ -272,12 +272,12 @@
       ]
     },
     {
-      "titulo": "Tallas",
+      "titulo": "Tamanhos",
       "tipo": "basico",
       "ruta": "https://www.nowsneakers.com/size.html"
     },
     {
-      "titulo": "Iniciar sesión",
+      "titulo": "Entrar",
       "tipo": "basico",
       "ruta": "/auth/login"
     }
