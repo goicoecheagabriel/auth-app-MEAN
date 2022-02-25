@@ -15,10 +15,11 @@ export class ContactComponent implements OnInit {
   overlays!: any[];
   ruta = [
     {
-      titulo:this._translate.instant('store_contact_002'),ruta:'/'
+      titulo:'',
+      ruta:'/'
     },
     {
-      titulo:this._translate.instant('store_contact_003'),
+      titulo:'',
       ruta:'/contact'
     }
    ]
@@ -40,6 +41,13 @@ export class ContactComponent implements OnInit {
           center: {lat: 40.44037976583327, lng: -3.8149501574627265},
           zoom: 16
       };
+
+      this._translate.get( ['store_contact_002', 'store_contact_003'] )
+      .subscribe( translations => {
+        this.ruta[0].titulo = translations['store_contact_002'];
+        this.ruta[1].titulo = translations['store_contact_003'];
+      } )
+
 
   }
 

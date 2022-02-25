@@ -10,10 +10,11 @@ export class AboutUsComponent implements OnInit {
 
   ruta = [
     {
-      titulo:this._translate.instant('store_about_us_002'),ruta:'/'
+      titulo:'',
+      ruta:'/'
     },
     {
-      titulo:this._translate.instant('store_about_us_003'),
+      titulo:'',
       ruta:'/about-us'
     }
    ]
@@ -21,6 +22,12 @@ export class AboutUsComponent implements OnInit {
   constructor( private _translate: TranslateService ) { }
 
   ngOnInit(): void {
+
+    this._translate.get( ['store_about_us_002', 'store_about_us_003'] )
+      .subscribe( translations => {
+        this.ruta[0].titulo = translations['store_about_us_002'];
+        this.ruta[1].titulo = translations['store_about_us_003'];
+      } )
   }
 
 }

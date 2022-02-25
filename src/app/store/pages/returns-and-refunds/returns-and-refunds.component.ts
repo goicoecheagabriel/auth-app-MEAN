@@ -18,11 +18,11 @@ export class ReturnsAndRefundsComponent implements OnInit {
   @ViewChild('panel') panel!: ElementRef;
   ruta = [
     {
-      titulo: this._translate.instant('store_returns_and_refunds_002'),
+      titulo: '',
       ruta: '/'
     },
     {
-      titulo: this._translate.instant('store_returns_and_refunds_003'),
+      titulo: '',
       ruta: '/returns-and-refunds'
     }
    ]
@@ -38,6 +38,12 @@ export class ReturnsAndRefundsComponent implements OnInit {
     import(`../../../../assets/data/returns-and-refunds/tree.${exist?lng:'en'}.json`).then( ({default:t}) => {
       this.nodes = t;
     });
+
+    this._translate.get( ['store_returns_and_refunds_002', 'store_returns_and_refunds_003'] )
+      .subscribe( translations => {
+        this.ruta[0].ruta = translations['store_returns_and_refunds_002'];
+        this.ruta[1].ruta = translations['store_returns_and_refunds_003'];
+      } )
 
   }
 

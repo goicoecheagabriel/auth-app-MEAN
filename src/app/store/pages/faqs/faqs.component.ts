@@ -19,11 +19,11 @@ txt: string = this.nodes[0]?.children[0]?.txt?.es;
 @ViewChild('mensaje') mensaje!: ElementRef;
 ruta = [
   {
-    titulo: this._translate.instant('store_faqs_002'),
+    titulo: '',
     ruta: '/'
   },
   {
-    titulo: this._translate.instant('store_faqs_003'),
+    titulo: '',
     ruta: '/faqs'
   }
  ]
@@ -44,6 +44,11 @@ ruta = [
       this.nodes = t;
     });
 
+    this._translate.get( ['store_faqs_002', 'store_faqs_003'] )
+      .subscribe( translations => {
+        this.ruta[0].titulo = translations['store_faqs_002'];
+        this.ruta[1].titulo = translations['store_faqs_003'];
+      } )
   }
 
   UrlExists(url:string) {
