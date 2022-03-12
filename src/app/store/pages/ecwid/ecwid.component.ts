@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 
 import { environment } from 'src/environments/environment';
 import { Carrito } from '../../interfaces/carrito.interface';
+import { VisitanteService } from '../../services/visitante.service';
 
 declare var window: any;
 declare var Ecwid: any;
@@ -18,7 +19,8 @@ export class EcwidComponent implements OnInit {
 
   storeId: number = environment.storeId;
 
-  constructor( private _elementRef: ElementRef) {}
+  constructor( private _elementRef: ElementRef,
+               private _visitanteService: VisitanteService) {}
 
   ngOnInit(): void {
     const etiqueta = document.getElementById('xProductEtiqueta');
@@ -31,6 +33,8 @@ export class EcwidComponent implements OnInit {
       localStorage.setItem("store-load","false");
       location.reload()
     }
+
+
 
   }
 
@@ -71,6 +75,13 @@ export class EcwidComponent implements OnInit {
     }
 
      Ecwid.OnCartChanged.add(callback);
+
+     Ecwid.OnPageLoaded.add( (page:any) => {
+      if ( page.type === 'PRODUCT' ) {
+        // this._visitanteService.setProductoVisitado(page.productId);
+        this._visitanteService.newVisitante(page.productId);
+      }
+     } )
 
   }
 
