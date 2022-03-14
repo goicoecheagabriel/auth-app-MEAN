@@ -64,7 +64,7 @@ export class VisitanteService {
 
    newVisitante( idProductVisaulized?: number ) {
     idProductVisaulized ? this.visitante.idProductVisaulized = idProductVisaulized : this.visitante.idProductVisaulized = null;
-    console.log(":::new:VISITANTE",this.visitante.idProductVisaulized)
+
      this._http.post(`${ environment.baseMetric }/visitante/new`, this.visitante)
      .subscribe( (resp: any) => {
        let idLocal = localStorage.getItem( 'tracking' );
@@ -90,7 +90,7 @@ export class VisitanteService {
           this.id = idLocal;
           this.visitante.id = idLocal;
         }
-        console.log(":::NOT:PRODUCT", this.visitante.idProductVisaulized)
+
         if( this.visitante.idProductVisaulized === null )
           this.newVisitante();
     }

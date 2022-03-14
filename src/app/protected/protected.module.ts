@@ -9,6 +9,7 @@ import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { HomeComponent } from './dashboard/pages/home/home.component';
 import { ChatComponent } from './dashboard/pages/chat/chat.component';
 import { SuscriptorsComponent } from './dashboard/pages/suscriptors/suscriptors.component';
+import { MetricsComponent } from './dashboard/pages/metrics/metrics.component';
 
 
 
@@ -18,7 +19,8 @@ import { SuscriptorsComponent } from './dashboard/pages/suscriptors/suscriptors.
     DashboardComponent,
     HomeComponent,
     ChatComponent,
-    SuscriptorsComponent
+    SuscriptorsComponent,
+    MetricsComponent
   ],
   imports: [
     CommonModule,

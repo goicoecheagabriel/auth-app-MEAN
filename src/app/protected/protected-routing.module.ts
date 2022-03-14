@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChatComponent } from './dashboard/pages/chat/chat.component';
 import { HomeComponent } from './dashboard/pages/home/home.component';
+import { MetricsComponent } from './dashboard/pages/metrics/metrics.component';
 import { SuscriptorsComponent } from './dashboard/pages/suscriptors/suscriptors.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'chat', component: ChatComponent },
       { path: 'suscriptors', component: SuscriptorsComponent },
+      { path: 'metrics', component: MetricsComponent },
       { path: '**', redirectTo: '' },
     ]
   }
