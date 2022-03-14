@@ -52,10 +52,8 @@ export class VisitanteService {
                         this.visitante.city = v.city;
                         this.visitante.country = v.country_name;
 
-                        // console.log(":::::",this.visitante);
                       } );
                     this.registerVisitante();
-                    // console.log(":::EVENT:URL",event.url)
                   }
                 } )
 
