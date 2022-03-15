@@ -56,8 +56,9 @@ export class MetricsComponent implements OnInit {
         "caption": false
       },
       "INGRESO_A": {
-        thickness : "weight",
-        borderWidth: 10,
+        // thickness : "weight",
+        thickness : 1,
+        caption: false
       },
       // [NEOVIS_DEFAULT_CONFIG]: {
       //   "thickness": "defaultThicknessProperty",

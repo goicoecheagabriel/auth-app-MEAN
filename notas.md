@@ -21,3 +21,7 @@ var callback = function(cart:any){
   Ecwid.OnCartChanged.add(callback);
 ```
 
+## Consulta para obtener los logs de un usuario por pagina visitada
+```
+MATCH p=(s)-[i:INGRESO_A]->(f)-[r:CON_ESTE]->(t) where s.`_id`='TJtE0fvw' RETURN s,i,f,r,t order by ID(t)
+```
