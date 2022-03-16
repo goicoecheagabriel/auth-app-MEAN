@@ -24,12 +24,12 @@
     "@types/file-saver": "^2.0.5",
     "ecwid-api-client": "^0.0.5",
     "file-saver": "^2.0.5",
-    "neovis.js": "^1.6.0",
     "primeicons": "^5.0.0",
     "primeng": "^13.1.0",
     "rxjs": "~7.4.0",
     "sweetalert2": "^11.2.1",
     "tslib": "^2.3.0",
+    "vis-network": "^9.1.0",
     "xlsx": "^0.18.1",
     "zone.js": "~0.11.4"
   },

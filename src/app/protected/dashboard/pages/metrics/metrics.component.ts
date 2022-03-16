@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import NeoVis, {NEOVIS_DEFAULT_CONFIG} from 'neovis.js';
+// import NeoVis, {NEOVIS_DEFAULT_CONFIG} from 'neovis.js';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -99,8 +99,8 @@ export class MetricsComponent implements OnInit {
     // this.config.initial_cypher= `MATCH (n)-[s]-(t)-[a]-(l) where n._id = '${ event.data._id }' RETURN n,s,t,a,l`
 
     if( this.panelActive ){
-      this.viz = new NeoVis( this.config )
-      .render();
+      // this.viz = new NeoVis( this.config )
+      // .render();
 
     }
   }
@@ -113,8 +113,8 @@ export class MetricsComponent implements OnInit {
 
     if ( e.index === 1 ) {
       this.panelActive = true;
-      this.viz = new NeoVis( this.config ).render();
-      console.log(new NeoVis( this.config ).nodes)
+      // this.viz = new NeoVis( this.config ).render();
+      // console.log(new NeoVis( this.config ).nodes)
     }
   }
 
