@@ -40,7 +40,7 @@ export class MetricsComponent implements OnInit {
         },
         "_store": {
           "image":"assets/images/logos/now.png",
-          "size": 1.0
+          "size": 0.1
         }
         // [NEOVIS_DEFAULT_CONFIG]: {
         //      "caption": "defaultCaptionProperty",
@@ -95,7 +95,7 @@ export class MetricsComponent implements OnInit {
 
   onRowSelect(event:any){
 
-    this.config.initial_cypher= `MATCH (vi:Visitante)-[in:INGRESO_A]->(store:_store)-[visu:VISUALIZO_EL_SIGUIENTE]->(p:PRODUCTO) WHERE vi._id = '${ event.data._id }' RETURN vi, in, store,visu,p, vi._id`
+    this.config.initial_cypher= `MATCH (vi:Visitante)-[in:INGRESO_A]->(store:_store)-[visu:VISUALIZO_EL_SIGUIENTE]->(p:PRODUCTO) WHERE vi._id = '${ event.data._id }' RETURN vi, in, store,visu,p, vi._id order by p.count asc`
     // this.config.initial_cypher= `MATCH (n)-[s]-(t)-[a]-(l) where n._id = '${ event.data._id }' RETURN n,s,t,a,l`
 
     if( this.panelActive ){
