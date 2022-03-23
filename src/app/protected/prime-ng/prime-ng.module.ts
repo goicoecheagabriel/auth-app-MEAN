@@ -11,6 +11,8 @@ import { TabViewModule }        from 'primeng/tabview';
 import { TagModule }            from 'primeng/tag';
 import { MessagesModule }       from 'primeng/messages';
 import { MessageModule }        from 'primeng/message';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { MessageModule }        from 'primeng/message';
     TabViewModule,
     TagModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    ProgressSpinnerModule,
+    ProgressBarModule
   ]
 })
 export class PrimeNgModule { }

@@ -14,6 +14,7 @@
 
   <div class="row">
     <div class="col-3">
+      <!-- Lista de visitantes -->
       <p-card>
         <h5>Visitantes</h5>
           <p-table
@@ -43,8 +44,7 @@
     </div>
 
     <div class="col-9">
-      <!-- <p-card *ngIf="selectedVisitante._id == undefined">
-      </p-card> -->
+      <!-- Mensaje cuando no hay ningun visitante seleccionado -->
       <p-messages severity="info" *ngIf="!!selectedVisitante._id === false">
         <ng-template pTemplate>
             <img src="assets/images/logos/now.png" width="32" />
@@ -52,32 +52,87 @@
         </ng-template>
     </p-messages>
 
+    <!-- Cuerpo de detalles del visitante seleccionado -->
       <p-card *ngIf="selectedVisitante._id">
-        <!-- <h5>Detalle de usuario: <span><p-tag [value]="selectedVisitante._id"></p-tag></span> </h5> -->
+
+        <!-- Barra de progreso mientras se cargan datos desde backend -->
+        <div style="min-height: 4px;">
+          <div *ngIf="this.nodes.length === 0">
+            <p-progressBar mode="indeterminate"></p-progressBar>
+          </div>
+        </div>
+
 
         <p-tabView>
           <p-tabPanel header="Productos">
             <p-tabView (onChange)="activaGrafo($event)">
               <p-tabPanel header="Detalle" [headerStyle]='{"font-size":"10px"}'>
-                <h5>Detalle de productos</h5>
 
+                <!-- Detalle de productos en p-table -->
+                  <p-table
+                    [virtualScroll]="true"
+                    scrollHeight="600px"
+                    [value]="producTables"
+                    selectionMode="single"
+                    [(selection)]="selectedVisitante"
+                    dataKey="_id"
+                    responsiveLayout="scroll"
+                    (onRowSelect)="onRowSelect($event)"
+                    (onRowUnselect)="onRowUnselect($event)">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <!-- <th>Id</th> -->
+                            <th>Imágen</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Descripción</th>
+                            <th>Url</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-producto>
+                        <tr [pSelectableRow]="producTables">
+                            <!-- <td>{{producto.id}}</td> -->
+                            <td>
+                              <img
+                                style="max-width:60px"
+                                [src]="producto.image"
+                                [alt]="producto.data.sku">
+                            </td>
+                            <td>{{ producto.label }}</td>
+                            <td>{{ producto.data.price | currency:'EUR' }}</td>
+                            <td>
+                              <div [innerHTML]="producto.data.description">
+                              </div>
+                            <td>
+                              <a [href]="producto.data.url" target="_blank">
+                                <i
+                                  class="pi pi-link"
+                                  style="font-size: 1.5rem">
+                                </i>
+                              </a>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
               </p-tabPanel>
+
               <p-tabPanel header="Grafos" [headerStyle]='{"font-size":"10px"}'>
-                <!-- <h5>Detalle de productos visitados</h5> -->
-                <div #app id="app" style="height: 500px;"></div>
+                <!-- Div donde se carga la instancia networkInstance -->
+                <div [hidden]="this.nodes.length === 0" #app id="app" style="height: 500px;"></div>
               </p-tabPanel>
             </p-tabView>
           </p-tabPanel>
+
           <p-tabPanel header="Páginas">
             Content
           </p-tabPanel>
+
           <p-tabPanel header="Logs">
             <h5>Detalle de logs realizados</h5>
             Content
           </p-tabPanel>
+
       </p-tabView>
-
-
       </p-card>
     </div>
 
