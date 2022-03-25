@@ -6,7 +6,7 @@
         <span
           *ngIf="!!selectedVisitante._id === true">
           <p-tag class="m-1" [value]="selectedVisitante._id"></p-tag>
-          <p-tag class="m-1" [value]="selectedVisitante.ip"></p-tag>
+          <!-- <p-tag class="m-1" [value]="selectedVisitante.ip"></p-tag> -->
         </span>
       </h2>
     </p-card>
@@ -28,17 +28,23 @@
             (onRowSelect)="onRowSelect($event)"
             (onRowUnselect)="onRowUnselect($event)">
             <ng-template pTemplate="header">
-                <tr>
+                <!-- <tr>
                     <th>Código</th>
                     <th>Ip</th>
-                </tr>
+                </tr> -->
             </ng-template>
-            <ng-template pTemplate="body" let-visitante>
-                <tr [pSelectableRow]="visitante">
-                    <td>{{visitante._id}}</td>
-                    <td>{{visitante.ip}}</td>
-                </tr>
-            </ng-template>
+          <ng-template pTemplate="body" let-visitante>
+              <tr [pSelectableRow]="visitante">
+                  <td>{{visitante._id}}</td>
+
+                  <td>
+                    <span
+                      [ngStyle]="{color:'var(--gray-400)', fontSize:'.8rem'}">
+                      {{visitante.create_at | date}}
+                    </span>
+                  </td>
+              </tr>
+          </ng-template>
         </p-table>
       </p-card>
     </div>
@@ -57,7 +63,7 @@
 
         <!-- Barra de progreso mientras se cargan datos desde backend -->
         <div style="min-height: 4px;">
-          <div *ngIf="this.nodes.length === 0">
+          <div *ngIf="this.nodes.length === 0 && !unregisteredVisitor">
             <p-progressBar mode="indeterminate"></p-progressBar>
           </div>
         </div>
@@ -66,31 +72,43 @@
         <p-tabView>
           <p-tabPanel header="Productos">
             <p-tabView (onChange)="activaGrafo($event)">
-              <p-tabPanel header="Detalle" [headerStyle]='{"font-size":"10px"}'>
+              <p-tabPanel
+                header="Detalle"
+                [headerStyle]='{"font-size":"10px"}'>
 
                 <!-- Detalle de productos en p-table -->
+
+                <!-- [scrollable]="true" -->
+                <app-not-found-metrics
+                  *ngIf="unregisteredVisitor"></app-not-found-metrics>
+
                   <p-table
+                    [hidden]="unregisteredVisitor"
+                    sortMode="multiple"
+                    [multiSortMeta]="[{field: 'label', order: -1}]"
                     [virtualScroll]="true"
-                    scrollHeight="600px"
+                    scrollHeight="500px"
                     [value]="producTables"
                     selectionMode="single"
-                    [(selection)]="selectedVisitante"
-                    dataKey="_id"
+                    [(selection)]="selectedProducto"
+                    dataKey="id"
                     responsiveLayout="scroll"
-                    (onRowSelect)="onRowSelect($event)"
-                    (onRowUnselect)="onRowUnselect($event)">
+                    (onRowSelect)="onRowSelect_productos($event)"
+                    (onRowUnselect)="onRowUnselect_productos">
                     <ng-template pTemplate="header">
                         <tr>
                             <!-- <th>Id</th> -->
                             <th>Imágen</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
-                            <th>Descripción</th>
+                            <th pSortableColumn="label">
+                              Cantidad
+                            </th>
+                            <th pSortableColumn="data.price">Precio</th>
+                            <th style="width:500px" pSortableColumn="data.description">Descripción</th>
                             <th>Url</th>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-producto>
-                        <tr [pSelectableRow]="producTables">
+                        <tr [pSelectableRow]="producto">
                             <!-- <td>{{producto.id}}</td> -->
                             <td>
                               <img
@@ -118,16 +136,24 @@
 
               <p-tabPanel header="Grafos" [headerStyle]='{"font-size":"10px"}'>
                 <!-- Div donde se carga la instancia networkInstance -->
-                <div [hidden]="this.nodes.length === 0" #app id="app" style="height: 500px;"></div>
+                <app-not-found-metrics
+                  *ngIf="unregisteredVisitor"></app-not-found-metrics>
+                <div
+                  #app
+                  *ngIf="!unregisteredVisitor"
+                  [hidden]="this.nodes.length === 0"
+                  id="app"
+                  style="height: 500px;">
+                </div>
               </p-tabPanel>
             </p-tabView>
           </p-tabPanel>
 
-          <p-tabPanel header="Páginas">
+          <p-tabPanel header="Páginas" [disabled]="true">
             Content
           </p-tabPanel>
 
-          <p-tabPanel header="Logs">
+          <p-tabPanel header="Logs" [disabled]="true">
             <h5>Detalle de logs realizados</h5>
             Content
           </p-tabPanel>

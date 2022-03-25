@@ -2,3 +2,18 @@
   /* padding: 1.5rem; */
   color: var(--bs-info);
 }
+
+td {
+  /* white-space:nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+  /* max-width: 250px; */
+  /* font-size: 12px; */
+  /* width:fit-content */
+  /* max-width: max-content;
+  min-width:auto; */
+}
+
+.p-datatable td {
+  background-color: red!important;
+}

@@ -16,5 +16,9 @@ export class MetricsService {
     return this._http.post<ProductsVisitedForUser>( path, {id: idClient} );
   }
 
+  getAllVisitants():any {
+    const path = `${ environment.baseMetric }/query/getVisitantes`;
+    return this._http.get( path );
+  }
 
 }

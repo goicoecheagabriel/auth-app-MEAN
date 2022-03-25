@@ -10,6 +10,7 @@ import { HomeComponent } from './dashboard/pages/home/home.component';
 import { ChatComponent } from './dashboard/pages/chat/chat.component';
 import { SuscriptorsComponent } from './dashboard/pages/suscriptors/suscriptors.component';
 import { MetricsComponent } from './dashboard/pages/metrics/metrics.component';
+import { NotFoundMetricsComponent } from './dashboard/comoponent/not-found-metrics/not-found-metrics.component';
 
 
 
@@ -20,7 +21,8 @@ import { MetricsComponent } from './dashboard/pages/metrics/metrics.component';
     HomeComponent,
     ChatComponent,
     SuscriptorsComponent,
-    MetricsComponent
+    MetricsComponent,
+    NotFoundMetricsComponent
   ],
   imports: [
     CommonModule,

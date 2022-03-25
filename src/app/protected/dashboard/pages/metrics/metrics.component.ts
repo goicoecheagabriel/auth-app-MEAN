@@ -74,25 +74,12 @@ export class MetricsComponent implements OnInit {
     initial_cypher: `MATCH (vi:Visitante)-[in:INGRESO_A]->(store:_store)-[visu:VISUALIZO_EL_SIGUIENTE]->(p:PRODUCTO) WHERE vi._id = 'pp_Cxpu_' RETURN vi, in, store,visu,p, vi._id`,
     arrows: true,
   }
+  unregisteredVisitor: boolean = true;
   panelActive: boolean = false;
   viz: any;
+  selectedProducto: any = {};
   selectedVisitante: any = {};
-  visitantes: any = {
-    "data": [
-      {
-        "_id": "0qCngARW",
-        "ip": "159.147.141.181"
-      },
-      {
-        "_id": "TJtE0fvw",
-        "ip": "320.147.141.200"
-      },
-      {
-        "_id": "v6Y5HawG",
-        "ip": "195.147.141.056"
-      }
-    ]
-  }
+  visitantes: any = [];
   nodes: any;
   producTables: any = [];
   edges: any;
@@ -104,20 +91,20 @@ export class MetricsComponent implements OnInit {
 
   constructor(private _metricsService: MetricsService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this._metricsService.getAllVisitants()
+      .subscribe((v:any)=> this.visitantes = v)
+   }
 
-  cargado(){
-    console.log("CArgadooooooo....")
-  }
-
-  onRowSelect(event: any) {
-    console.log(":::CODIGO:VISITANTE", this.selectedVisitante._id)
+  getAllProductsVisitedForUser() {
+    // console.log(":::CODIGO:VISITANTE", this.visitantes.data)
+    this.unregisteredVisitor = false;
     this.nodes = [];
     this.edges = [];
     this._metricsService.getAllProductsVisitedForUser(this.selectedVisitante._id)
       .subscribe((graph: ProductsVisitedForUser) => {
+        console.log("REGISTROS", graph);
         if (graph.ok) {
-
           this.nodes = new DataSet<any>(graph.data!.nodes);
           this.edges = new DataSet<any>(graph.data!.edges);
 
@@ -126,18 +113,34 @@ export class MetricsComponent implements OnInit {
             return data.titulo === 'Product'
           })
           // console.log(this.nodes.get())
-          // console.log(graph.data!.nodes)
+          console.log(graph);
+          console.log(this.producTables);
+
           // console.log(this.producTables)
 
           if (this.panelActive) {
             this.activaGrafo();
           }
-          console.table(":::GRAPH::PRODUCT:VISITED:FOR:USER", this.nodes.get())
+          // console.table(":::GRAPH::PRODUCT:VISITED:FOR:USER", this.nodes.get())
           // console.table(":::GRAPH::PRODUCT:VISITED:FOR:USER", this.edgesA)
         }
+      }, (e:any) => {
+        this.unregisteredVisitor = true;
       })
 
       // this.producTables = this.producTables.map()
+  }
+
+
+  onRowSelect_productos(event:any) {
+    // console.log(":::onRowSelect_productos:", this.producTables)
+  }
+  onRowUnselect_productos(event:any) {
+    return;
+  }
+
+  onRowSelect(event: any) {
+    this.getAllProductsVisitedForUser();
 
   }
 
@@ -194,25 +197,47 @@ export class MetricsComponent implements OnInit {
         }
       }
 
-      this.networkInstance = new Network(this.app.nativeElement, this.data, this.options);
+      // solo generamos la instancia solo si existen datos para graficar
+      // !this.unregisteredVisitor && (this.networkInstance = new Network(this.app.nativeElement, this.data, this.options));
 
-      this.networkInstance.fit();
-      this.options.nodes.mass = 1;
-      this.networkInstance.setOptions(this.options);
-
-
-      this.networkInstance.on('click', (e) => {
-        // nodes.getDataSet().add([{ id: 8, label: "Tia", color:'orangered' }]);
-        // edges.add( {from:6,to:8},'a' )
+      // this.networkInstance.fit();
+      // this.options.nodes.mass = 1;
+      // this.networkInstance.setOptions(this.options);
 
 
-        // console.log(e.nodes[0],nodes.getDataSet().get())
-        // let valor = nodes[0].array.forEach((element:any) => {
-        //   id = nodo
-        // });
 
-      })
+
+      // this.networkInstance.on('click', (e) => {
+      //   // nodes.getDataSet().add([{ id: 8, label: "Tia", color:'orangered' }]);
+      //   // edges.add( {from:6,to:8},'a' )
+
+
+      //   // console.log(e.nodes[0],nodes.getDataSet().get())
+      //   // let valor = nodes[0].array.forEach((element:any) => {
+      //   //   id = nodo
+      //   // });
+
+      // })
+
+      !this.unregisteredVisitor && ( (()=>{
+        this.networkInstance = new Network(this.app.nativeElement, this.data, this.options);
+        this.networkInstance.fit();
+        this.options.nodes.mass = 1;
+        this.networkInstance.setOptions(this.options);
+        this.networkInstance.on('click', (e) => {
+          // nodes.getDataSet().add([{ id: 8, label: "Tia", color:'orangered' }]);
+          // edges.add( {from:6,to:8},'a' )
+
+
+          // console.log(e.nodes[0],nodes.getDataSet().get())
+          // let valor = nodes[0].array.forEach((element:any) => {
+          //   id = nodo
+          // });
+
+        })
+      })() )
     }
+
   }
 
 
