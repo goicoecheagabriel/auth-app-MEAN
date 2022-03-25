@@ -78,17 +78,16 @@
                 header="Detalle"
                 [headerStyle]='{"font-size":"10px"}'>
 
-
                 <!-- [scrollable]="true" -->
                 <app-not-found-metrics
                   *ngIf="unregisteredVisitor">
                 </app-not-found-metrics>
 
-                  <!-- Detalle de productos en p-table -->
-                  <app-productos-table-metrics
-                    [producTables]="producTables"
-                    [unregisteredVisitor]="unregisteredVisitor">
-                  </app-productos-table-metrics>
+                <!-- Detalle de productos en p-table -->
+                <app-productos-table-metrics
+                  [producTables]="producTables"
+                  [unregisteredVisitor]="unregisteredVisitor">
+                </app-productos-table-metrics>
               </p-tabPanel>
 
               <p-tabPanel header="Grafos" [headerStyle]='{"font-size":"10px"}'>
@@ -102,7 +101,9 @@
                   id="app"
                   style="height: 500px;">
                 </div>
+                <app-productos-grapho-metrics></app-productos-grapho-metrics>
               </p-tabPanel>
+
             </p-tabView>
 
           </p-tabPanel>

@@ -4,7 +4,6 @@ import { Network } from 'vis-network';
 import { environment } from 'src/environments/environment';
 import { MetricsService } from 'src/app/store/services/metrics.service';
 import { ProductsVisitedForUser } from '../../interfaces/productsVisitedForUser.inerface';
-import { filter, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-metrics',

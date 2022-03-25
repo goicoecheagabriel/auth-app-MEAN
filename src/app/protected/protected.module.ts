@@ -10,10 +10,11 @@ import { HomeComponent } from './dashboard/pages/home/home.component';
 import { ChatComponent } from './dashboard/pages/chat/chat.component';
 import { SuscriptorsComponent } from './dashboard/pages/suscriptors/suscriptors.component';
 import { MetricsComponent } from './dashboard/pages/metrics/metrics.component';
-import { NotFoundMetricsComponent } from './dashboard/comoponents/not-found-metrics/not-found-metrics.component';
-import { ProductosTableMetricsComponent } from './dashboard/comoponents/productos-table-metrics/productos-table-metrics.component';
-import { PaginasMetricsComponent } from './dashboard/comoponents/paginas-metrics/paginas-metrics.component';
-import { LogsMetricsComponent } from './dashboard/comoponents/logs-metrics/logs-metrics.component';
+import { NotFoundMetricsComponent } from './dashboard/components/not-found-metrics/not-found-metrics.component';
+import { ProductosTableMetricsComponent } from './dashboard/components/productos-table-metrics/productos-table-metrics.component';
+import { PaginasMetricsComponent } from './dashboard/components/paginas-metrics/paginas-metrics.component';
+import { LogsMetricsComponent } from './dashboard/components/logs-metrics/logs-metrics.component';
+import { ProductosGraphoMetricsComponent } from './dashboard/components/productos-grapho-metrics/productos-grapho-metrics.component';
 
 
 
@@ -28,7 +29,8 @@ import { LogsMetricsComponent } from './dashboard/comoponents/logs-metrics/logs-
     NotFoundMetricsComponent,
     ProductosTableMetricsComponent,
     PaginasMetricsComponent,
-    LogsMetricsComponent
+    LogsMetricsComponent,
+    ProductosGraphoMetricsComponent
   ],
   imports: [
     CommonModule,
