@@ -72,67 +72,22 @@
         <p-tabView>
 
           <p-tabPanel header="Productos">
+
             <p-tabView (onChange)="activaGrafo($event)">
               <p-tabPanel
                 header="Detalle"
                 [headerStyle]='{"font-size":"10px"}'>
 
-                <!-- Detalle de productos en p-table -->
 
                 <!-- [scrollable]="true" -->
                 <app-not-found-metrics
-                  *ngIf="unregisteredVisitor"></app-not-found-metrics>
+                *ngIf="unregisteredVisitor"></app-not-found-metrics>
 
-                  <p-table
-                    [hidden]="unregisteredVisitor"
-                    sortMode="multiple"
-                    [multiSortMeta]="[{field: 'label', order: -1}]"
-                    [virtualScroll]="true"
-                    scrollHeight="500px"
-                    [value]="producTables"
-                    selectionMode="single"
-                    [(selection)]="selectedProducto"
-                    dataKey="id"
-                    responsiveLayout="scroll"
-                    (onRowSelect)="onRowSelect_productos($event)"
-                    (onRowUnselect)="onRowUnselect_productos">
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <!-- <th>Id</th> -->
-                            <th>Imágen</th>
-                            <th pSortableColumn="label">
-                              Cantidad
-                            </th>
-                            <th pSortableColumn="data.price">Precio</th>
-                            <th style="width:500px" pSortableColumn="data.description">Descripción</th>
-                            <th>Url</th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-producto>
-                        <tr [pSelectableRow]="producto">
-                            <!-- <td>{{producto.id}}</td> -->
-                            <td>
-                              <img
-                                style="max-width:60px"
-                                [src]="producto.image"
-                                [alt]="producto.data.sku">
-                            </td>
-                            <td>{{ producto.label }}</td>
-                            <td>{{ producto.data.price | currency:'EUR' }}</td>
-                            <td>
-                              <div [innerHTML]="producto.data.description">
-                              </div>
-                            <td>
-                              <a [href]="producto.data.url" target="_blank">
-                                <i
-                                  class="pi pi-link"
-                                  style="font-size: 1.5rem">
-                                </i>
-                              </a>
-                            </td>
-                        </tr>
-                    </ng-template>
-                </p-table>
+                  <!-- Detalle de productos en p-table -->
+                  <app-productos-table-metrics
+                    [producTables]="producTables"
+                    [unregisteredVisitor]="unregisteredVisitor">
+                  </app-productos-table-metrics>
               </p-tabPanel>
 
               <p-tabPanel header="Grafos" [headerStyle]='{"font-size":"10px"}'>
@@ -149,16 +104,13 @@
               </p-tabPanel>
             </p-tabView>
 
-
-            <app-productos-metrics></app-productos-metrics>
-
           </p-tabPanel>
 
-          <p-tabPanel header="Páginas" [disabled]="false">
+          <p-tabPanel header="Páginas" [disabled]="true">
             <app-paginas-metrics></app-paginas-metrics>
           </p-tabPanel>
 
-          <p-tabPanel header="Logs" [disabled]="false">
+          <p-tabPanel header="Logs" [disabled]="true">
             <app-logs-metrics></app-logs-metrics>
           </p-tabPanel>
 

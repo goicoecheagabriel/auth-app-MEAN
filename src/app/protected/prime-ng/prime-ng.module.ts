@@ -13,6 +13,8 @@ import { MessagesModule }       from 'primeng/messages';
 import { MessageModule }        from 'primeng/message';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { ProgressBarModule } from 'primeng/progressbar';
     MessagesModule,
     MessageModule,
     ProgressSpinnerModule,
-    ProgressBarModule
+    ProgressBarModule,
+    AvatarModule,
+    AvatarGroupModule
   ]
 })
 export class PrimeNgModule { }
