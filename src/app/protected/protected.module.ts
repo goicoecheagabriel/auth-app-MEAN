@@ -11,6 +11,9 @@ import { ChatComponent } from './dashboard/pages/chat/chat.component';
 import { SuscriptorsComponent } from './dashboard/pages/suscriptors/suscriptors.component';
 import { MetricsComponent } from './dashboard/pages/metrics/metrics.component';
 import { NotFoundMetricsComponent } from './dashboard/comoponents/not-found-metrics/not-found-metrics.component';
+import { ProductosMetricsComponent } from './dashboard/comoponents/productos-metrics/productos-metrics.component';
+import { PaginasMetricsComponent } from './dashboard/comoponents/paginas-metrics/paginas-metrics.component';
+import { LogsMetricsComponent } from './dashboard/comoponents/logs-metrics/logs-metrics.component';
 
 
 
@@ -22,7 +25,10 @@ import { NotFoundMetricsComponent } from './dashboard/comoponents/not-found-metr
     ChatComponent,
     SuscriptorsComponent,
     MetricsComponent,
-    NotFoundMetricsComponent
+    NotFoundMetricsComponent,
+    ProductosMetricsComponent,
+    PaginasMetricsComponent,
+    LogsMetricsComponent
   ],
   imports: [
     CommonModule,

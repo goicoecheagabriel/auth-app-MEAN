@@ -148,15 +148,18 @@
                 </div>
               </p-tabPanel>
             </p-tabView>
+
+
+            <app-productos-metrics></app-productos-metrics>
+
           </p-tabPanel>
 
-          <p-tabPanel header="Páginas" [disabled]="true">
-            Content
+          <p-tabPanel header="Páginas" [disabled]="false">
+            <app-paginas-metrics></app-paginas-metrics>
           </p-tabPanel>
 
-          <p-tabPanel header="Logs" [disabled]="true">
-            <h5>Detalle de logs realizados</h5>
-            Content
+          <p-tabPanel header="Logs" [disabled]="false">
+            <app-logs-metrics></app-logs-metrics>
           </p-tabPanel>
 
       </p-tabView>
