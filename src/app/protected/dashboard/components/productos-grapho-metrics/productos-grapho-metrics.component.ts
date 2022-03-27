@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Network } from 'vis-network';
 
 @Component({
   selector: 'app-productos-grapho-metrics',
@@ -7,9 +8,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosGraphoMetricsComponent implements OnInit {
 
+  @Input('unregisteredVisitor')         unregisteredVisitor :boolean = false;
+  @Input ('nodes')                      nodes               :any = [];
+  @Input('edges')                       edges               :any = [];
+  @Input('options')                     options             :any = [];
+  @Input('panelActive')                 panelActive!        :boolean;
+  @ViewChild('app', { static: false })  app!                :ElementRef;
+  public                                networkInstance!    :Network;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  ngOnChanges(): void {
+    this.cargarGraphos()
+  }
+
+  cargarGraphos() {
+    if ( !this.unregisteredVisitor && this.panelActive ) {
+      this.networkInstance = new Network(
+        this.app.nativeElement,
+        { nodes: this.nodes, edges: this.edges },
+        this.options
+      );
+      this.networkInstance.fit();
+      this.options.nodes.mass = 1;
+      this.networkInstance.setOptions( this.options );
+      this.networkInstance.on('click', (e) => {
+
+      });
+    }
   }
 
 }

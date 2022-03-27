@@ -73,7 +73,7 @@
 
           <p-tabPanel header="Productos">
 
-            <p-tabView (onChange)="activaGrafo($event)">
+            <p-tabView (onChange)="setActivaPanel($event)">
               <p-tabPanel
                 header="Detalle"
                 [headerStyle]='{"font-size":"10px"}'>
@@ -91,17 +91,18 @@
               </p-tabPanel>
 
               <p-tabPanel header="Grafos" [headerStyle]='{"font-size":"10px"}'>
-                <!-- Div donde se carga la instancia networkInstance -->
                 <app-not-found-metrics
-                  *ngIf="unregisteredVisitor"></app-not-found-metrics>
-                <div
-                  #app
-                  *ngIf="!unregisteredVisitor"
+                *ngIf="unregisteredVisitor"></app-not-found-metrics>
+
+                <!-- Graficado de graphos -->
+                <app-productos-grapho-metrics
                   [hidden]="this.nodes.length === 0"
-                  id="app"
-                  style="height: 500px;">
-                </div>
-                <app-productos-grapho-metrics></app-productos-grapho-metrics>
+                  [panelActive]="panelActive"
+                  [unregisteredVisitor]="unregisteredVisitor"
+                  [nodes]="nodes"
+                  [edges]="edges"
+                  [options]="options">
+                </app-productos-grapho-metrics>
               </p-tabPanel>
 
             </p-tabView>
@@ -122,7 +123,7 @@
 
   </div>
 
-  <div class="container mt-4">
+  <div class="container mt-4" [hidden]="true">
     <div class="row">
       <div class="col">
         <pre>

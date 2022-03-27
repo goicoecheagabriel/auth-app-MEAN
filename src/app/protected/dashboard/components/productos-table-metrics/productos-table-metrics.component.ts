@@ -7,15 +7,13 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductosTableMetricsComponent {
 
+  @Input('unregisteredVisitor') unregisteredVisitor : boolean = false;
+  @Input('producTables')        producTables!       : any;
+
   panelActive: boolean = false;
-  // @ViewChild('app', { static: false }) app!: ElementRef;
-  @Input('unregisteredVisitor') unregisteredVisitor: boolean = false;
-  @Input('producTables') producTables!: any;
   selectedProducto: any = {};
 
-  constructor() {
-    console.log(this.producTables)
-   }
+  constructor() { }
 
   onRowSelect_productos(event:any) {
     console.log(this.selectedProducto)
@@ -24,8 +22,5 @@ export class ProductosTableMetricsComponent {
   onRowUnselect_productos(event:any) {
     return;
   }
-
-
-
 
 }
