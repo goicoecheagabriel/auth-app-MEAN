@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe( ( param ) => {
-      console.log("PARAMS DESDE HOME", param);
+      // console.log("PARAMS DESDE HOME", param);
     } )
 
     // this.ecwidService.cargarStore();
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     let mensajeHight: number = this._propsGeneralService.altoMensajeHeader;
 
     this.separador.nativeElement.style.height = (headerHight + mensajeHight + 20) + 'px';
-    console.log(this.separador.nativeElement);
+    // console.log(this.separador.nativeElement);
 
   }
 

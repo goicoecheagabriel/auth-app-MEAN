@@ -24,7 +24,7 @@ export class EcwidComponent implements OnInit {
 
   ngOnInit(): void {
     const etiqueta = document.getElementById('xProductEtiqueta');
-    console.log(":::ETIQUETA", etiqueta)
+    // console.log(":::ETIQUETA", etiqueta)
     if( etiqueta ) {
       // etiqueta.remove();
       location.reload();

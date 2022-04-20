@@ -18,7 +18,7 @@ export class ArticulosDestacadosComponent implements OnInit {
 
     let response = this._productosService.getProductos()
       .subscribe( data => {
-        console.log(data);
+        // console.log(data);
         this.productos = data.items;
       } )
     return response;

@@ -11,12 +11,7 @@ export const environment = {
   apiEcwid:'https://app.ecwid.com/api/v3/54091005',
   apiKeyEcwid:'public_413dGm5kvXjvWKwQv5FP7xmnMZ4q3i7U',
   storeId: 54091005,
-  "x-token": 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTlmNjU4YWU1YTYxYjI1ZmE0NDBmNjIiLCJuYW1lIjoiVGVzdDEiLCJpYXQiOjE2NDMyNzk4MTYsImV4cCI6MTY0MzM2NjIxNn0.oOvZWdzBcQ-8VluNTrvAe8d3SXTcCeTDpDOtUDH1BwY',
-  neovis: {
-    server_url: 'bolt://85.208.21.25:7687',
-    server_user: 'neo4j',
-    server_password: 'Cybercafe01'
-  }
+  "x-token": 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTlmNjU4YWU1YTYxYjI1ZmE0NDBmNjIiLCJuYW1lIjoiVGVzdDEiLCJpYXQiOjE2NDMyNzk4MTYsImV4cCI6MTY0MzM2NjIxNn0.oOvZWdzBcQ-8VluNTrvAe8d3SXTcCeTDpDOtUDH1BwY'
 };
 // storeId: 35523535
 // apiKeyEcwid:'public_KcQbsBtfApSjvEfvxxfbW1nRw2NEZ9Xw',
