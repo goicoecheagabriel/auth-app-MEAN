@@ -3,7 +3,7 @@
   <nav class="container">
     <ul>
 
-      <li *ngFor="let seccion of menu.secciones; let i = index" [ngClass]="{'li-root': seccion.tipo !== 'grafico','li-root-2':seccion.tipo === 'grafico'}">
+      <li *ngFor="let seccion of menu?.secciones; let i = index" [ngClass]="{'li-root': seccion.tipo !== 'grafico','li-root-2':seccion.tipo === 'grafico'}">
         <i class="fas fa-crown" *ngIf="seccion.icono"></i>
 
         <a *ngIf="seccion.tipo === 'basico'; else sinHancor" [href]="seccion.ruta">

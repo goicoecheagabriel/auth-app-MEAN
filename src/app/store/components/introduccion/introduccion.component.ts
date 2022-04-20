@@ -44,15 +44,10 @@ export class IntroduccionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
-
-
-
   }
 
   ngAfterViewInit(){
-    console.log("Volvemos a cargar la introduccion")
+
     this.cycleSlide.nativeElement.click();
 
   }

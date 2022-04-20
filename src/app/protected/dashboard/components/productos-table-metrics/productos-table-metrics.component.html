@@ -1,0 +1,77 @@
+<div class="container-fluid" [hidden]="true">
+  <div class="row m-3">
+
+    <div class="col-4">
+      <p-card>
+        Hola
+      </p-card>
+
+    </div>
+
+    <div class="col-4">
+      <p-card>
+        Hola
+      </p-card>
+    </div>
+
+    <div class="col-4">
+      <p-card>
+        Hola
+      </p-card>
+    </div>
+  </div>
+</div>
+
+<!-- [virtualScroll]="true"
+          scrollHeight="500px" -->
+        <p-table
+          [paginator]="producTables.length > 6"
+          [rows]="6"
+          [hidden]="unregisteredVisitor"
+          sortMode="multiple"
+          [multiSortMeta]="[{field: 'label', order: -1}]"
+          [value]="producTables"
+          selectionMode="single"
+          [(selection)]="selectedProducto"
+          dataKey="id"
+          responsiveLayout="scroll"
+          (onRowSelect)="onRowSelect_productos($event)"
+          (onRowUnselect)="onRowUnselect_productos">
+          <ng-template pTemplate="header">
+              <tr>
+                  <!-- <th>Id</th> -->
+                  <th>Imágen</th>
+                  <th pSortableColumn="label">
+                    Cantidad
+                  </th>
+                  <th pSortableColumn="data.price">Precio</th>
+                  <th style="width:500px" pSortableColumn="data.description">Descripción</th>
+                  <th>Url</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-producto>
+              <tr [pSelectableRow]="producto">
+                  <!-- <td>{{producto.id}}</td> -->
+                  <td>
+                    <img
+                      style="max-width:60px"
+                      [src]="producto.image"
+                      [alt]="producto.data.sku">
+                  </td>
+                  <td>{{ producto.label }}</td>
+                  <td>{{ producto.data.price | currency:'EUR' }}</td>
+                  <td>
+                    <div [innerHTML]="producto.data.description">
+                    </div>
+                  <td>
+                    <a [href]="producto.data.url" target="_blank">
+                      <i
+                        class="pi pi-link"
+                        style="font-size: 1.5rem">
+                      </i>
+                    </a>
+                  </td>
+              </tr>
+          </ng-template>
+      </p-table>
+

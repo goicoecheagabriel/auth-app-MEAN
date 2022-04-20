@@ -1,0 +1,137 @@
+
+<div class="container-fluid">
+
+  <div class="row mb-3 mt-3">
+    <p-card>
+      <h2 class="titulo">Navegación por Visitante
+        <span
+          *ngIf="!!selectedVisitante._id === true">
+          <p-tag class="m-1" [value]="selectedVisitante._id"></p-tag>
+          <!-- <p-tag class="m-1" [value]="selectedVisitante.ip"></p-tag> -->
+        </span>
+      </h2>
+    </p-card>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <!-- Lista de visitantes -->
+      <p-card>
+        <h5>Visitantes</h5>
+          <p-table
+            [virtualScroll]="true"
+            scrollHeight="600px"
+            [value]="visitantes.data"
+            selectionMode="single"
+            [(selection)]="selectedVisitante"
+            dataKey="_id"
+            responsiveLayout="scroll"
+            (onRowSelect)="onRowSelect($event)"
+            (onRowUnselect)="onRowUnselect($event)">
+            <ng-template pTemplate="header">
+                <!-- <tr>
+                    <th>Código</th>
+                    <th>Ip</th>
+                </tr> -->
+            </ng-template>
+          <ng-template pTemplate="body" let-visitante>
+              <tr [pSelectableRow]="visitante">
+                  <td>{{visitante._id}}</td>
+
+                  <td>
+                    <span
+                      [ngStyle]="{color:'var(--gray-400)', fontSize:'.8rem'}">
+                      {{visitante.create_at | date}}
+                    </span>
+                  </td>
+              </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+
+    <div class="col-9">
+      <!-- Mensaje cuando no hay ningun visitante seleccionado -->
+      <p-messages severity="info" *ngIf="!!selectedVisitante._id === false">
+        <ng-template pTemplate>
+            <img src="assets/images/logos/now.png" width="32" />
+            <div class="p-2"> Seleccione un visitante para ver los detalles.</div>
+        </ng-template>
+    </p-messages>
+
+    <!-- Cuerpo de detalles del visitante seleccionado -->
+      <p-card *ngIf="selectedVisitante._id">
+
+        <!-- Barra de progreso mientras se cargan datos desde backend -->
+        <div style="min-height: 4px;">
+          <div *ngIf="this.nodes.length === 0 && !unregisteredVisitor">
+            <p-progressBar mode="indeterminate"></p-progressBar>
+          </div>
+        </div>
+
+
+        <p-tabView>
+
+          <p-tabPanel header="Productos">
+
+            <p-tabView (onChange)="setActivaPanel($event)">
+              <p-tabPanel
+                header="Detalle"
+                [headerStyle]='{"font-size":"10px"}'>
+
+                <!-- [scrollable]="true" -->
+                <app-not-found-metrics
+                  *ngIf="unregisteredVisitor">
+                </app-not-found-metrics>
+
+                <!-- Detalle de productos en p-table -->
+                <app-productos-table-metrics
+                  [producTables]="producTables"
+                  [unregisteredVisitor]="unregisteredVisitor">
+                </app-productos-table-metrics>
+              </p-tabPanel>
+
+              <p-tabPanel header="Grafos" [headerStyle]='{"font-size":"10px"}'>
+                <app-not-found-metrics
+                *ngIf="unregisteredVisitor"></app-not-found-metrics>
+
+                <!-- Graficado de graphos -->
+                <app-productos-grapho-metrics
+                  [hidden]="this.nodes.length === 0"
+                  [panelActive]="panelActive"
+                  [unregisteredVisitor]="unregisteredVisitor"
+                  [nodes]="nodes"
+                  [edges]="edges"
+                  [options]="options">
+                </app-productos-grapho-metrics>
+              </p-tabPanel>
+
+            </p-tabView>
+
+          </p-tabPanel>
+
+          <p-tabPanel header="Páginas" [disabled]="true">
+            <app-paginas-metrics></app-paginas-metrics>
+          </p-tabPanel>
+
+          <p-tabPanel header="Logs" [disabled]="true">
+            <app-logs-metrics></app-logs-metrics>
+          </p-tabPanel>
+
+      </p-tabView>
+      </p-card>
+    </div>
+
+  </div>
+
+  <div class="container mt-4" [hidden]="true">
+    <div class="row">
+      <div class="col">
+        <pre>
+          {{ selectedVisitante | json }}
+        </pre>
+      </div>
+    </div>
+  </div>
+
+</div>

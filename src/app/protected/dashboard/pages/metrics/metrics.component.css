@@ -1,0 +1,22 @@
+.titulo {
+  /* padding: 1.5rem; */
+  color: var(--bs-info);
+}
+
+
+
+/* Menu left */
+.container-personalizado {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+}
+
+.menu-left {
+  /* position: fixed; */
+  left: 0;
+  top: 0;
+  width: 260px;
+  min-height: 100vh;
+  background-color: #2d7f8f;
+
+}

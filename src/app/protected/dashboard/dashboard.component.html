@@ -4,15 +4,53 @@
     <li routerLink="/dashboard/chat" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Chat</li>
     <li routerLink="/dashboard/suscriptors" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Suscriptores</li>
     <li routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Store</li>
-    <li routerLink="/dashboard/otro" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Menu-5</li>
+    <li routerLink="/dashboard/metrics" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Estadísitcas</li>
     <li routerLink="/dashboard/otro" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Menu-6</li>
     <li (click)="logout()">Logout</li>
   </ul>
 </p-sidebar>
 
-<p-button type="text"
-          (click)="display = true"
-          icon="pi pi-plus" label="Show">
-</p-button>
+<!-- <p-button
+  type="text"
+  class="p-button-raised p-button-rounded"
+  (click)="display = true"
+  icon="pi pi-plus" label="Show">
+</p-button> -->
 
-  <router-outlet></router-outlet>
+<!-- (click)="display = true" -->
+<button
+  #cm
+  (click)="onLeftMouseClick($event,contextMenu)"
+  style="position: absolute;top: 10px;left: 224px;background-color: #0dcaf0;"
+  pButton
+  type="button"
+  class="p-button-raised p-button-rounded"
+  icon="pi pi-th-large" label="">
+</button>
+
+<p-contextMenu #contextMenu [target]="cm" [model]="items"></p-contextMenu>
+<!-- <p-splitButton style="position: absolute;top: 10px;left: 224px;background-color: #0dcaf0;" label="" class="p-button-raised p-button-rounded" icon="pi pi-check" (click)="display = false" [model]="items"></p-splitButton> -->
+
+<div class="container-personalizado">
+
+  <div class="menu-left">
+    <div class="container">
+      <div class="col mt-3">
+
+
+        <p-card header="Título">
+          Menú principal
+        </p-card>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="">
+
+    <router-outlet></router-outlet>
+
+  </div>
+</div>
+
+
